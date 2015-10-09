@@ -1,0 +1,109 @@
+/* CSS Document */
+
+.main {
+	font-family: "Trebuchet MS", sans-serif;
+	line-height: 1.5;
+    	color:#666;
+	MARGIN: 0px;
+	TEXT-ALIGN: justify;
+	FONT-SIZE: 13px;
+}
+.main p { margin: 0.7em 0 }
+
+.main h1, h2, h3, h4 {
+	font: bold 225%/1.1 Georgia,serif;
+	margin: 1em 0 0.5em 0; padding:0;
+	}
+.main h2 { font-size:167% }
+.main h3 { font-size:140% }
+.main h4 { font-size:115% }
+
+.main pre {
+	font: 90%/1.3 monospace;
+	margin: 2em 0; padding: 1em 1.5em 1em 3em;
+	border: 1px solid #6291CA;
+	background: #EDEFF2;
+	color: black;
+	}
+
+.main title {
+    z-index: 3;
+	text-align: left;
+}
+
+.main {
+	border-left: 1px solid #CCCCCC;
+    margin-left: 110px;
+	padding-left: 10px;
+	width:600px;
+	z-index: 2;
+}
+.main H1{
+	font-size: 20px;
+    border-bottom: 1px solid #6699CC;
+	margin-bottom: 7px;
+}
+.main H2{
+	font-size: 14px;
+    border-bottom: 1px solid #000000;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	
+}
+.main H3{
+	font-size: 13px;
+	font-style: italic;
+	margin-top: 3px;
+	margin-bottom: 10px;
+}
+.main table{
+	font-size: 13px;
+	color: #333333;
+}
+.main A {
+	text-decoration: none;
+	/*color: #990033; rojo*/
+	color: #996633;
+}
+.main A:hover {
+	text-decoration: underline;
+	/*color: #FF3300; rojo */
+	color: #FF9933;
+}
+.main.tabbed{
+	display: block;
+	margin-left:17px;
+}
+/* Navigation */
+.main.navLateral {
+	position:absolute;
+	top: 128px;
+	left: 0px;
+	font-size: 13px;
+	font-weight: bold;
+	width: 105px;
+	z-index: 4;
+}
+.main.navLateral a{
+	display: block;
+	padding-left: 8px;
+	text-decoration: none;
+	border-bottom: 1px solid #66CCCC;
+	padding-bottom: 4px;
+	padding-top: 4px;
+}
+.main.navLateral a:hover{
+	background-color:#66CCCC;
+}
+.main.navLateral a:active{
+	background-color:#6699CC;
+}
+
+.main.footer {
+    margin-left: 120px;
+	width:600px;	
+	font-size: 12px;
+	width: 599px;
+    z-index: 4;
+	border-top: 2px solid black;
+}

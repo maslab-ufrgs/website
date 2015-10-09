@@ -1,0 +1,13 @@
+/* AUTOMATICALLY GENERATED ON Thu May 22 13:43:46 GMT-03:00 2003*/
+/* DO NOT EDIT */
+
+grant codeBase "http://www.inf.ufrgs.br/~mas/siscot/appletvisual/" {
+  permission java.io.FilePermission "<<ALL FILES>>", "read";
+  permission java.io.FilePermission "indco2.topo", "read, read, write, delete, execute";
+  permission java.io.FilePermission "appletvisual/*.*", "read";
+};
+
+grant codeBase "http://www.inf.ufrgs.br/~mas/siscot/-" {
+  permission java.io.FilePermission "<<ALL FILES>>", "read";
+};
+

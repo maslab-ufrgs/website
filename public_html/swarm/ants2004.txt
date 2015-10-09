@@ -1,0 +1,8 @@
+@InProceedings{Oliveira+2004,
+  author =     {Oliveira, D. and Ferreira, P., Bazzan, A. and Kl{\"{u}}gl, F.},
+  title =        {Reducing Traffic Jams with a Swarm-based Approach for Selection of Signal Plans},
+  booktitle = {Proceedings of Fourth International Workshop on Ant Colony Optimization and Swarm Intelligence $
+  year =        {2004},
+  address =   {Brussels, Belgium},
+  note =        {Poster}
+}

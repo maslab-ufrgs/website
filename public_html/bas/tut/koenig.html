@@ -1,0 +1,126 @@
+<html>
+<p>
+<b>Lecture 1: Decision Making in Robotics under Time Pressure and Incomplete 
+Information</b>
+<br>
+Autonomous agents must be able to make good decisions in complex situations
+that involve a substantial degree of uncertainty, yet find solutions in a
+timely manner despite a large number of potential contingencies. 
+Unfortunately, decision making in non-deterministic domains is typically
+time-consuming due to the large number of contingencies. Thus, autonomous
+agents need to use decision-making techniques that speed up planning by 
+sacrificing the optimality of the resulting plans, such as agent-centered
+search and assumption-based planning. In this tutorial, I will give an
+in-depth overview of such techniques, including algorithms, their analysis 
+using a unifying graph-theoretic framework (including complexity results), and
+their integration into complete agent architectures. I will then show how
+these techniques can be used to solve robot-navigation problems. 
+</p><p>
+I will report on results from a large number of researchers, including Craig
+Tovey, Maxim Likhachev, David Furcy, Yaxin Liu, Yuri Smirnov, Anthony Stentz,
+Illah Nourbakhsh, and others.
+</p>
+
+<p>
+<b>Lecture 2: Multi-Robot Coordination </b><br>
+In this tutorial, I will discuss two different multi-robot coordination
+approaches: one that uses explicit communication and one that does not.
+</p><p>
+Consider the following agent-coordination task: A team of Mars rovers needs to 
+visit a number of rocks to take rock samples. The assignment of rocks to
+rovers can turn out to be suboptimal as the rovers gain additional information
+about the terrain.  How to assign and re-assign rocks to rovers is a difficult 
+problem. For example, centralized control is inefficient in terms of both the
+required amount of computation and communication since the central controller
+is the bottleneck of the system. Auctions, on the other hand, are efficient in 
+terms of both the required amount of computation and communication since
+information is compressed into numeric bids that the robots can compute in
+parallel. In this tutorial, I will discuss how to set up auctions so that they 
+run in real time, yet achieve good team performance, including results that
+provide the provable constant factor performance guarantees of auction
+mechanisms for agent coordination.
+</p><p>
+Robots that use auctions have to communicate explicitly with each other.  Ant 
+robots, on the other hand, are simple creatures with limited sensing and
+computational capabilities as well as very noisy actuation. They have the
+advantage that they are easy to program and cheap to build. This makes it 
+feasible to deploy groups of ant robots and take advantage of the resulting
+fault tolerance and parallelism. Ant robots cannot use conventional planning
+methods due to their limited sensing and computational capabilities. In this 
+tutorial, I will describe navigation methods that address these limitations by
+leaving markings in the terrain, similar to what real ants do. These markings
+are shared among all ant robots and allow them to cover terrain even if they 
+do not have any kind of memory, cannot maintain maps of the terrain, nor plan
+complete paths. These navigation methods do not require the ant robots to be
+localized, which completely eliminates solving difficult and time-consuming 
+localization problems. They can be used by single ant robots and groups of ant
+robots and are robust even if the ant robots are moved without realizing this
+(say, by people running into them), some ant robots fail, and some markings 
+get destroyed.
+</p><p>
+I will report on results from a large number of researchers, including
+M. Berhault, H. Huang, S. Jain, D. Kempe, P. Keskinocak, A. Kleywegt,
+M. Lagoudakis, V. Markakis, A. Meyerson, J. Svennebring, C. Tovey, X. Zhen, 
+and others.
+</p>
+<br>
+<p>
+Sven Koenig is an associate professor in computer science at the University of
+Southern California. He received his Ph.D . degree in computer science from
+Carnegie Mellon University for his thesis on "Goal-Directed Acting with
+Incomplete Information." He also holds M.S. degrees from the University of
+California at Berkeley and Carnegie Mellon University and is the recipient of 
+an NSF CAREER award, an IBM Faculty Partnership Award, a Charles Lee Powell
+Foundation Award, a Raytheon Faculty Fellowship Award, the Tong Leong Lim
+Pre-Doctoral Prize from the University of California at Berkeley, and a 
+Fulbright Fellowship. Several of his students won awards for their research as
+well.
+</p><p>
+Sven is interested in intelligent systems that have to operate in large,
+nondeterministic, nonstationary or only partially known domains. Most of his 
+research centers around techniques for decision making (planning and learning)
+that enable situated agents (such as robots or decision-support systems) to
+act intelligently in their environments and exhibit goal-directed behavior in 
+real-time, even if they have only incomplete knowledge of their environment,
+imperfect abilities to manipulate it, limited or noisy perception or
+insufficient reasoning speed. He believes that finding good solutions to these 
+problems requires approaches that cut across many different fields and,
+consequently, his research draws on areas such as artificial intelligence,
+decision theory, and operations research. Applications of his research include 
+planetary exploration, supply-chain management, medicine, crisis management
+(such as oil-spill containment) and robotics.
+</p><p>
+Sven has edited several conference proceedings and published over 100 papers
+in various areas of artificial intelligence and robotics, including 12 full 
+papers at AAAI and IJCAI, as well as papers in planning (ICAPS, AIPS, ECP),
+agents (AAMAS, Autonomous Agents), machine learning (ICML, COLT), numerical
+artificial intelligence and control (NIPS, UAI, AI and Mathematics), knowledge 
+representation and reasoning (KR), robotics (ICRA, IROS, ROBOTICS), and
+others. He was conference co-chair of the 2002 Symposium on Abstraction,
+Reformulation, and Approximation (SARA), conference co-chair of the 2004 
+International Conference on Automated Planning and Scheduling (ICAPS), and
+program co-chair of the 2005 International Joint Conference on Autonomous
+Agents and Multi-Agent Systems (AAMAS). He is an associate editor of the 
+Journal of Artificial Intelligence Research (JAIR) and on the steering or
+advisory committees of ICAPS, SARA, and Americas School on Agents and
+Multi-Agent Systems. In 2005, he helped to start Robotics: Science and Systems 
+(ROBOTICS), a highly selective robotics conference.
+</p><p>
+Sven is passionate about helping students and young researchers to get a good
+start in their careers. On the high-school level, he repeatedly represented
+the American Association for Artificial Intelligence (AAAI) as a judge at
+ISEF, which brings together over 1,400 high-school students from more than
+forty nations. On the university level, he was three times co-chair of the 
+AAAI student abstract and poster program, often participates as panelist or
+mentor in doctoral consortia of artificial intelligence conferences, and
+frequently presents tutorials about his research at summer schools and 
+conferences. In 2005, he co-organized the first USC Programming Contest .
+</p><p>
+In his spare time, Sven cares for more than fifty newts from all over the
+world. He is also a member of the Academy of Magical Arts at the Magic Castle 
+in Hollywood, but has not yet managed to make all (or even some) of his work
+disappear.
+</p><p>
+For more information, please visit "idm-lab.org".
+</p>
+</html>

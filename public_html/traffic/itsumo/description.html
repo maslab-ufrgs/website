@@ -1,0 +1,242 @@
+<html>
+
+<head>
+
+ <style type="text/css">
+  <!--
+   @import "style.css";
+  -->
+ </style>
+
+</head>
+
+<body>
+<span class="pagina">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+
+<table style="width:100%; height:100%;" border="0">
+ <tbody>
+
+  
+
+  <tr>
+   <td width="100%" height="10" valign="top" align="center">
+    <font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+    <strong>Description of the System<br><br></strong>
+    </font>
+   </td>
+  </tr>
+
+
+	<!--
+  <tr>
+   <td width="100%" valign="top" align="center">
+    <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+    <br><a href="demoItsumo.pdf">Download the 'pdf' file here.</a>
+    </font>
+   </td>
+  </tr>
+-->
+
+
+<tr>
+   <td width="100%" valign="top" align="left">
+    <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+    <br>
+	ITSUMO project includes the development of a traffic simulator. One of the aims
+of the project is to create an information system for urban mobility capable of
+integrating different functionalities, such as a simple traffic control (mostly based
+on control of traffic lights), traffic management and real-time information
+providing via internet and/or mobile phone. The idea is to distribute the system
+under free-software license.
+<br><br><br>
+For more details, such as documentation, development roadmap, etc, please visit our <a href="http://wiki.inf.ufrgs.br/mediawiki/index.php/ITSUMO"> Wiki </a>
+
+    </font>
+   </td>
+  </tr>
+
+<!--
+  <tr>
+   <td width="100%" height="10" valign="top" align="center">
+    <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+    <strong><br>Overview of the Project<br><br></strong>
+    </font>
+   </td>
+  </tr>
+
+  <tr>
+   <td width="100%" valign="top">
+    <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       The ITSUMO project uses data from several sources, which can be both off-line information 
+(maintained by different providers), and on-line information (e.g. traffic flow).
+The network topology data, for instance, is provided by traffic authorities. Currently,
+given that there is a lack of on-line data, which is not collected in the city of Porto Alegre 
+so far, we work basically with off-line data. However, the system is designed to use
+real-time information. Most of the information is stored in XML files.<br><br>
+	There is also a module for definition of driver's decision-making; by default, the decision-making procedures are related to the Nagel-Schreckenberg automata,
+which provides a good approximation of dynamics for microscopic simulations. However, when the researcher is interested in studying the behavior of a group of drivers, or drivers with more complex decision-making rules, it is possible to specify and attach drivers with arbitrary behaviors to the simulator. This is done via the module for definition of driver's decision-making.<br><br>
+	The simulator kernel retrieves the necessary information from the database, performs the computation of the vehicles
+movement, updates the network state and stores this in flat files. If special drivers are
+defined, then the simulator also loads such models.<br><br>
+     A visualization module retrieves data originated from the microscopic simulation
+and exhibits a graphical representation of the traffic simulation. The ITSUMO system
+is thus composed by four distinct modules: the data module, the simulation kernel,
+the driver definition module, and the visualization module. These modules are further
+detailed next.
+       </font>
+   </td>
+  </tr>
+
+
+  <tr>
+   <td width="100%" height="10" valign="top" align="center">
+    <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+    <strong><br>Data Module<br><br></strong>
+    </font>
+   </td>
+  </tr>
+
+  <tr>
+   <td width="100%" valign="top">
+   <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       This module manages the traffic information data that serves as the basis to the microscopic 
+simulation. This information is stored in a XML file, which means that the data is represented in the form of tags. 
+Since performance is a key issue in real-time simulation, a database with simple interface and quick
+response is required. <br><br>
+    The database structure reflects the way the simulation occurs. Thus, the data module
+is in charge of providing the necessary means to specify several topology details and
+network constrains. The entities that define the network are ilustrated below, and they
+also describe the relationship between the several traffic network
+components. For instance, each lane is associated with exactly one laneset, and each
+section is composed by exactly two nodes. The data module was designed in a way to
+ease the task of specifying the traffic network topology.
+<br><br>
+<center>
+<img src="slides/net.png" border="0">
+</center>
+<br><br>
+       </font>
+   </td>
+  </tr>
+
+
+  <tr>
+   <td width="100%" height="10" valign="top" align="center">
+    <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+    <strong><br>Simulation Module<br><br></strong>
+    </font>
+   </td>
+  </tr>
+
+  <tr>
+   <td width="100%" valign="top">
+   <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       This module was developed using a C++ platform and is responsible for
+simulating the traffic flow in a given traffic network. <br><br>
+    The current version of the simulator solves the issue related to the difficulty to represent urban scenarios.
+Thus, the simulation tool we developed supports different kinds of elements, such as
+lanes, lanesets, streets, sections, vehicles, sources and sinks (of vehicles), sensors and
+detectors, traffic lights, etc.<br><br> 
+    The simulation occurs in discrete steps and is implemented as a series of updates
+in the drivers' decisions of movement, followed by simultaneous updates in the vehicles' positions in the network and finally updates in the status of objects such as nodes,
+sources, sinks and traffic lights. Each update in a node or traffic light may modify its current behavior depending on its internal state and on the current traffic flow. Sources and
+sinks are also activated whenever a vehicle passes over a crossing. This is the moment
+in the simulation when vehicles might be inserted or removed from the network. Note
+that special drivers (such as floating cars) are not removed from the simulation. Also,
+they do follow specific routes, in opposition to standard drivers which move through the
+network in a non-deterministic way. The last action to be performed in each iteration is
+to fire the sensors and detectors, updating their internal status and eventually displaying
+partial simulation results.<br><br>
+    The simulation results can be formatted according to the user needs. The most usual
+formats are the 'cell map' and the 'laneset occupation map'. The former is a representation 
+of a set of cells associated with each lane in the network. This set of cells indicates
+which portions of the lane are occupied by which vehicle, providing the most detailed
+output possible. On the other hand, the 'laneset occupation map' is a high-level output
+which specifies the rate of occupation (density) for each laneset in the network. This
+output is generally more useful since it hides the individual status of the vehicles and
+focus on the overall stochastic behavior of the simulation.
+       </font>
+   </td>
+  </tr>
+
+  <tr>
+   <td width="100%" height="10" valign="top" align="center">
+    <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+    <strong><br>Driver Model<br><br></strong>
+    </font>
+   </td>
+  </tr>
+
+  <tr>
+   <td width="100%" valign="top">
+   <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       Modeling a driver can be approached in different ways, depending on the purpose of the
+simulation. In most cases, the objective is to simulate the collective or macroscopic behavior. 
+However, this behavior emerges out of individual ones. Simple algorithms, like
+the Nagel-Schreckenberg model, can be used to describe vehicles movement without
+loosing significant simulation fidelity with reality.<br><br>
+     A driver model can be splitted into two different components: decision about movement and planning. 
+These two parts together can guide a vehicle in the network. The
+movement decision is responsible for a vehicles short-time movement. On the other
+hand, the planning decision is related to a more sophisticated decision-making, e.g.
+which direction to turn and what to do in case a jam exists.<br><br>
+     The movement decision-making is in charge of local optimization, i. e., to decide
+whether it is better to take-over the headway vehicle, to change lane and to avoid collisions 
+with other vehicles. More complex than the former, the planning decision-making
+component is in charge of deciding which path to follow from one point to other in the
+traffic network. To make such decisions it is necessary to observe the traffic forecast
+(if available), the path restrictions, etc. Moreover, it is necessary to implement some
+kind of learning skills in the driver module so that it improves future decisions. Most
+of the optimization performed intends to reduce the amount of time to travel from an
+origin to a destination. The planning component can use several heuristics and methods
+to perform those tasks.
+       </font>
+   </td>
+  </tr>
+
+
+
+  <tr>
+   <td width="100%" height="10" valign="top" align="center">
+    <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+    <strong><br>Visualization Module<br><br></strong>
+    </font>
+   </td>
+  </tr>
+
+  <tr>
+   <td width="100%" valign="top">
+   <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+      This is the module that allows the graphical visualization of the simulation results. The
+visualization can be either in a macroscopic or microscopic level. At a macroscopic
+level, the visualization considers only data which reflect the overall behavior of the
+network, abstracting details and providing an useful tool to capture the big picture of
+what is happening in a specific scenario. <br><br>
+    On the other hand, the microscopic level visualization provides an interface through
+which one can see, both in 2D and 3D manner, individual vehicles movement. In order
+to obtain a more realistic and detailed visualization, this module is being developed
+using the OpenGL graphic library, enabling features such as walk-through navigation
+and detail-focused interfaces.<br><br> 
+    The visualization of data at microscopic level is the kernel of the information system
+for the traffic engineer and/or the urban planning experts. At this level, the whole system
+can be used to perform simulations in order to check what happens if a shopping mall
+is built in a specific place, or a new arterial is added to the network (as it was the case
+recently in Porto Alegre), or traffic lights are synchronized in a given way. In the next
+section we discuss a scenario from Porto Alegre in which the ITSUMO system was
+used: a simulation of an arterial with different rates of vehicles insertion in given nodes
+of the network.<br><br>
+       </font>
+   </td>
+  </tr>
+
+-->
+
+ </tbody>
+</table>
+
+</font>
+</span>
+</body>
+
+</html>

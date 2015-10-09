@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<style type="text/css">
+   <!--
+    @import "style.css";
+   -->
+  </style>
+</head>
+<body>
+<br>
+<br>
+<span class="docu">
+<table style="width: 70%; text-align: left;" border="0" cellpadding="0" cellspacing="0">
+ <tbody>
+   <tr>
+    <td width="20%"></td>
+    <td align="left">
+     <font color="#113366" face="Verdana, Arial, Helvetica, sans-serif" size="5">
+		<a href="http://wiki.inf.ufrgs.br/mediawiki/index.php/ITSUMO_DOC_en">Documentation in English<a><br><br>
+     </font>
+    <td>
+   <tr>   
+   <tr>
+    <td width="20%"></td>
+    <td align="left">
+     <font color="#113366" face="Verdana, Arial, Helvetica, sans-serif" size="5">
+		<a href="./traffic/itsumo/docs/br.html" target="interno">Documentacao em   Portugues 
+(mantida apenas ate julho de 2006)</a>
+     </font
+    <td>
+   <tr>
+</span>
+</body>
+</html>

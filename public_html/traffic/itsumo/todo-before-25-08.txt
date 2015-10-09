@@ -1,0 +1,344 @@
+TAREFAS PENDENTES -- PROJETO SIMULADOR DE TRAFEGO
+ATENCAO: TAREFAS *RESOLVIDAS NAO DEVEM SER DELETADAS* MAS SIM *MOVIDAS PARA O FINAL* (FAVOR COLOCAR O QUE FOI RESOLVIDO, POR QUEM E QUANDO)
+
+ 
+edicoes deste arquivo:
+robert -- 10.8.06
+denise -- 08.8.06
+denise -- 01.8.06
+robert -- 24.7.06
+bruno -- 24.6.06
+ana -- 21.6.06
+ana -- 30.6.06
+ana -- 06.7.06
+ana -- 09.8.06
+
+------------
+SIMULADOR
+-----------
+Bruno: 
+	geracao dos logs de visualization stopped cars e relative nao tao 
+ 	funcionando
+		(FAZENDO)
+
+
+- comentarios no codigo devem ser em ingles
+ 
+-----------------------------------
+INTERFACE EDICAO DE REDES/TOPOLOGIAS  (Bruno) 
+-----------------------------------
+
+-- comentarios no codigo devem ser em ingles
+
+- Melhorar a interface de edicao da topologia, no desenho das fases
+	usar setas, e nao retas, para indicar a direcao permitida
+	(FAZENDO)
+
+
+- decidimos tirar todos os parametros de configuracao geral do editor de topologia e mover pra interface geral. isto inclui*tambem*: 
+* cell size
+* car max speed
+* iteration lenght
+
+
+- adicao de sinks automaticamente: eu entendo a motivacao, evitar problemas na simulacao, mas me pergunto o que acontecera qudo alguem interromper a criacao da rede pra continuar o trabalho depois. O programa vai gerar sinks automaticamene, sinks estes que nao eram desejados.... alguma alternativa aqui (tipo warning ?)
+
+
+(bruno)
+- alterar editor de topologia para que nao se preciise abrir
+  explicitamente o arquivo de configuracao da rede; este ja foi
+  selecionado uma vez e esta salvo no arquivo xml de configuracao 
+
+         -> editor suporta arquivo especificado pela linha de
+	 comando. Alterar witsumo pra passar o nome
+
+
+--------------------
+VISUALIZACAO (Bruno )
+--------------------
+
+- comentarios no codigo devem ser em ingles
+
+- ter um toggle ON/OFF para o "quadro" de legenda de cores (isto permite
+a pessoa ativar ou desativar esta legenda pois eventualmente ela vai
+encobrir o desenho....)
+
+
+- No visualizador
+        colocar um "circulo" nas interseccoes nao semaforizadas
+		OK. Ou nao colocar nada?
+
+        pintar uma marca verde em cima da lane que abre pra algum lugar qualquer nas intersecoes semaforizadas
+        tirar a grama!
+		FAZENDO
+
+
+- icones: eu sugiro tirar aquele do semaforo e substituir por:
+* interfaces *nao* semaforizadas: apenas um circulo
+		OK. Ou nao colocar nada?
+
+* interfaces *semaforizadas*: colocar uma seta *verde* na direcao do movimento *em verde*. 
+
+
+- temos que ver como discretizar a tabela cores-densidade de acordo com o gosto do usuario a fim de que ele possa configurar o palete pra ser mais discretizado em uma determinada faixa de densidades
+
+- eh preciso mostrar de alguma forma na janela de visualizacao um pno. help sobre como se " interage" com a simulacao? tipo pause, zoom, replay e quit
+
+- nao tem como interromper a visualizacao! somente com CTRL+C e dai todo o witsumo vai pro espaco :-(
+
+- visualizacao microscopica !!!
+
+
+---------------------------
+USO DE MOTORISTAS ESPECIAIS (Robert)
+---------------------------
+
+- comentarios no codigo devem ser em ingles
+
+-  (robert) detalhar a documentacao (em ingles, nao precisa em portugues
+ja que esta nao esta mais sendo mantida) colocando mais instrucoes sobre
+como programar o agente (notadamente a questao de ser *um ou mais
+programas, como utilizar as variaveis que foram definidas*, etc.)
+
+- deixar claro na documentacao (explicar): no caso de se estar usando motoristas especiais, nao se precisa de source? (afinal eles sao gerados numa laneset definida pelo usuario certo?). E sinks? Neste caso, como se comporta o simulador ? nao gera os motoristas NaSch mas apenas os especiais? isto esta funcionando? O que acontece com os motoristas especiais ao chegarem a seu destino?
+
+- no caso de uso de motoristas especiais, deixar claro na documentacao  porque ha uma opcao de *criar* motoristas NaSch... eh pra manter o nr. destes contante (neste caso nao haveria sources) ???
+
+- dentro da ideia de NAO ter valores em branco mas sim procurar colocar sempre um valor default,no campo max speed falta este valor, sugiro que seja o mesmo ja definido para max speed *da rede*
+
+- no motorista IRC: deixar claro na doucmentacao em *qual formato* eu deveria fornecer os parametros relativos a lanesets... eh o ID? eh o nome? eh texto ??? de qq forma, duvido que alguem se lembre do ID.... alguma sugestao pra melhorar isto?
+
+- melhorar texto de descricao do irc nos docs
+
+- criar um log com as saidas do motorista irc (rotas escolhidas, heuristicas usadas, ...) de forma a facilitar a analise
+
+
+---------------
+INTERFACE GERAL
+-------------- 
+
+- comentarios no codigo devem ser em ingles
+
+- problema ao tentar salvar o arquivo de configuracao com a extencao xml. Caso a esxtencao nao seja especificada o arquivo consegue 
+ser salvo normalmente.
+
+- denise: testar interface pra definicao do agente (sugestao: qdo for fazer o agente do paper extensao ATT)
+
+- testar a compatibilidade com o qt 4. ja foi verificado problema com os
+  dialogos para salvar arquivos.
+
+- pode ser problema com o qt4 mas Save As nao funciona. Nao eh gerado nenhum erro mas tambem o arquivo novo nao eh salvo
+
+- o time out para inicio da simulacao so ocorre uma vez (na primeira vez que se usa a opcao Simulate). Nas demais, a simulacoao inicia sem o time out (deve sr algum loop do programa no qual so se entra uma vez)
+
+
+
+-----
+GERAL (todos !)
+
+- substituir a versao da doc. em portugues pela em ingles no diretorio docs e alterar o help se for o caso pra abrir o arquivo correto (lembrando que a versao em portugues da documentacao *nao sera mais mantida*)
+
+- fazer testes p/ ter certeza de que o codigo dos semaforos realmente esta
+  funcionando!!
+
+- nao existe uma uniformidade em relacao ao diretorio default para leitura e armazenamento de dados. Enquanto o Robert usa o home do user, o bruno usa Documents (um dir. que nem todo mundo tem por sinal). Seria maravilhoso mesmo, que fosse pro diretorio corrente :-)
+
+-  qdo a simulacao termina com erro *nao mostrar* a janela "You can now visualize... " (isto eh um engodo ;-)
+
+-----------------------------
+DOCUMENTACAO ( FORMATO: HTML)
+-----------------------------
+
+- denise:  atualizar documentacao ja que agora as interfaces mudaram.... sorry :-(
+
+- robert: seria bom ter algum input em relacao a como usar o motorista IRC
+
+- traducao: temos que ver como faze-la e/ou distribuir entre nos. a parte inicial eu tenho em ingles ja. Previsao: 15/7
+
+- figs estao desatualizadas. correspondem aa versoes  anteriores ( a denise esta cuidando disto)
+
+- parte da explicacao se refere a opcoes/abas/etc que nao mais existem, foram colocadas em outras janelas/interfaces...
+
+- a explicacao sobre como criar uma *route* para um dado motorista (notadamente no FC), nao diz que, antes de se poder clicar em origem (from) e destino (to), *precisa selecionar a opcao User Defined* (de outro modo nao se tem acesso ao campo from e to). isto eh meio obvio mas dentro da ideia de fornecer um texto for dummies, acho que eh bom dizer ;-)
+
+- exemplo de configuracao de um motorista irc
+
+----------------------------------------------
+COMUNICACAO (AGENTE-AGENTE E AGENTE-SIMULADOR)
+----------------------------------------------
+
+
+- ha diversas propostas.
+- tentativa de convergir pra uma apos cada um tentar imaginar como sera a comunicacao entre seus agentes (um so processo? o que pode ser abstraido e fornecido como "base"  para os demais usuarios? )
+A ideia eh que concluamos:
+
+a) se faz sentido ter este repertorio (notar que ele envolve uma abstracao de funcoes e objetivos, pode nem ser viavel/desejavel...)
+b) se chegarmoos aa conclusao que eh desejavel E viavel, entao a proxima coisa eh discutir como fazer.
+
+- com. agente - simulador: 
+
+* decidimos continuar com sincronismo (simulador espera resposta de todos os agetnes semaforicos por ate 5 steps e se nao obtiver resposta continua com o plano antigo); 
+
+* nesta linha, quem quiser implementar delay tem que "simular" no agente; quem quiser que o calculo passe atrasado para o simulador tem que se preocupar com isto na programacao do agente
+
+
+------
+OUTROS
+------
+
+-  backup
+
+- CVS
+
+- distribuir um Binario 
+
+- Demo: a denise testou o software Adobe Captivate no wine e nao teve resultados muito positivos logo decidimos gerar screen shots em open GL e depois os editra com o movie maker (windows). Isto tem uma prioridade baixa
+
+- pagina: esboco esta pronto (ana) mas aguardando fernando terminar a pag. poral traffic para dai iniciar a pag. do itsumo
+
+- politica de liberacao do codigo: ate o final do ano vamos decidir e
+ colocar disponivel (GPL etc.)
+
+- podia ser feito diagramas UML, pelo menos dos agentes TL e motoristas (tavlvez com uma ferramenta automatica c++-> UML).
+
+
+---------------------------------------------------------------------------
+
+ASSUNTOS / TAREFAS RESOLVIDAS (O QUE , QUEM, QUANDO)
+
+--------------------------------------------------------------------------
+
+(bruno)
+- Alterar interface de edicao da topologia para remover
+	sensortime step
+	agenttime step e tambem tirar esses dados do xml da topologia
+
+(bruno)
+- porque a janela tem o titulo de Network Unnamed? Eu nao vi nenhum
+ lugar pra por o nome dela... assumir unnamed tb nao eh correto...
+   -> Clicando-se em Network dï¿½pra mudar o nome
+
+(bruno)
+- Alterar valores defaults na interface de edicao da topologia
+	ex: vel. default 10 -> 3
+
+ 
+(bruno)
+- em Settings, Network editor, o valor default de Cell size nao deve ser 1 mas sim 5
+
+(bruno)
+- em Street creation: os nodos tem que ser adicionados em uma ordem
+  particular! isto nao eh bom. colocar no TODO que isto deve ser
+  flexibilizado no futuro
+  
+  -> isso ï¿½feito assim porque a criacao da rua ï¿½basicamente a
+     especificacao de quais lanesets estao conectadas com quais. Por
+     essa razao, a ordem dos nodos ï¿½a informacao mais importante
+     na criacao de uma street
+
+(bruno)
+- corrigir o texto que diz que a laneset mais a essquerda eh ZERO
+  (como diz a interface); na verdade nenhum objeto (lane, laneset, )
+  eh gerado como zero mas simulador como UM quando eh a mais a esquerda
+
+
+
+
+(bruno)
+- ao criar um novo signal plan, as fases comecam com a numeracao dos
+  os ids relativas as fases do outro sp criado anteriormente
+     Por exemplo: um semaforo tem o sp1 com fase 1 e 2, quando criamos
+     o sp2 a primeira fase fica com id 3 e a segunda com 4, assim por diante. 
+     Eh preciso ver se isto vai ficar assim para sempre ou se
+     arrumamos todo o codigo do simulador para nao usar este ID com indexador de array
+
+   -> aparentemente esse ï¿½o comportamento esperado pelo traffic
+      light implementado pelo Omar. 
+
+(bruno)
+- aparentemente o sink nao retira todos os veiculos (memso com prob. =1); 
+  verificar se esta retirando mesmo
+    -> nao consegui reproduzir esse bug.
+
+(robert)-(24.07.06)
+- bug no parsing da mensagem de mudanca do signal plan (reportado por Luis Nunes)
+    -> corrigido
+
+(bruno)
+- saida em tela do nr da iteracao atrasa violentamente o processamento! sugiro a cada 100 passos apenas
+
+(bruno)
+- adicionado no visual3D texto com nome da network sendo visualizada
+
+(bruno)
+- pls tire o fundo "grama" e substitua por fundo branco ou preto e dai
+  as lanes seriam em cinza num tom apropriado
+
+(bruno)
+- visual3D modificado para nao usar texturas; escala de cores
+melhorada;
+- adicionada box grafico mostrando os valores da escala de cores
+
+(bruno) 
+- ainda sobre o palete de cores, sugiro um nr. reduzido de
+  cores: 3 tons de verde (claro, medio e escuro), 3 de amarelo e 3 de
+  vermelho, alem de 1 violeta sendo que verde claro seria a densidade
+  menor (faixa 0-?) e violeta sera 100% denso. Com estas 10 cores da pra
+  representar o que precisamos.
+
+
+(bruno)
+- como eh detreminada a largura da street na figura? eu tenho uma
+  section com 1 laneset que tem 5 lanes e deposi do nodo vira uma lane
+  apenas.... no entanto todas as streets sao desenhadas com a mesma
+  largura... nao precisa ser proporcional mas eu notei que quando era
+  apenas 1 lane em todas as streets, a largura era menor e apos eu
+  incluir 4 lanes a mais numa das streets *tudo* passou a ficar com
+  uma largura maior. O problema disto eh que o usuario pode pensar que
+  ha mais lanes do que de fato ha dado que a larguar muda pra *todas*
+  as streets
+	-> largura das ruas era determinada pelo numero de
+  lanesets. Agora é determinada (corretamente) pelo numero total de lanes
+
+
+
+(bruno)
+- valores default: no caso de deceleration prob. deveria ser uma copia
+  do valor decelaratio prob. *da rede* (nao sei se ja nao eh assim mas
+  quero frisar que nao deve ser *necessariamente* zero mas sim copia
+  do valor definido na interface de conf. da simulacao). Se ambos
+  forem zero, ok.
+
+    -> decel da rede e decel da lane sao 0 por default. Nao devem ser
+       iguais pq sao medidas independentes. Agora eh usada a desaceleracao
+       da rede, exceto se uma desaceleracao tiver sido para a lane (ie,
+       utiliza sempre a desaceleracao "mais especifica").
+
+- denise:  seguir document atual passo a passo e corrigir eventuais problemas + olhar documentos antigos (fernando, emails circulados)
+
+(robert): dentro da ideia de NAO ter valores em branco mas sim procurar   colocar sempre um valor default,
+  numero de drivers nao deveria ser zero. afinal se estamos criando eh porque queremos no min. 1 certo? entao sugiro default 0 UM
+    -> corrigido
+
+(robert): porque ha um arq de conf. apenas para os agentes? porque nao pode estar tudo no geral????
+   -> porque podemos querer usar diferentes configuracoes de agentes para a mesma configuracao de simulacao, portanto eh 
+interessante ter isso em um arquivo separado
+
+(robert): - a interface de criacao de agentes semaforicos poderia mostrar apenas *nodos que tenham traffic lights*, evitaria o problema de a pessoa associar um agente a um nodo que nao tem TL.
+    -> nao acho isso interessante pq gostaria de ter ideia completa da rede ao definir os agentes, como por exemplo todos os 
+nodos para os quais estara sendo enviado veiculos, e caso eu retire os que nao tem traffic lights posso estar omitindo a 
+conexao entre outros nodos que possuam traffic lights. De qlq forma a interface filtra a selecao do usuario elimiando 
+automaticamente nodos q nao possuam traffic light.
+
+(robert) tem que haver uma solucao pra questao de abertura dos 2 arquivos (me refiro ao xml de configuracao da rede E o da 
+topologia em si). Eh meio irritante ter que abrir o arquivo da topo da rede cada vez que se quer editar algo la.... Se ele 
+ja ta definido no xml da configuracao da simulacao, pra que a operacao de abrir explicitamente ???? Esta sodeveria ser usada 
+quando se esta iniciando uma *nova rede* e *uma nova configuracao* nao?
+   -> corrigido na versao 2.1.0 para o caso da edicao da toplogia. Para o caso da visualizacao nao pode ser automatico pois cada simulacao pode gerar varios arquivos de visualizacao (conforme varios sensores).
+
+(robert) a plotagem da rede esta com os Ys estao trocados (notei isto quando fui criar uma rota pra um FC e os segmentos em verde 
+-- que alias ajudam muito :-) -- apareciam ao contrario. Os da rota com Y maior apareciam em baixo e os com Y menor em cima...
+    -> na verdade estamos usando a padronizacao dessa forma, ou seja, o Y comeca no topo da tela
+
+(robert) eliminar a interrupcao do teclado ao timeout dos agentes no inicio da simulacao?
+    -> eh necessario para acelerar o inicio da simulacao, caso se esteja usando os programas via linha de comando.

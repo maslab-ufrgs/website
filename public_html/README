@@ -1,0 +1,60 @@
+README
+
+Recomendações para uso da área pública do user 'mas':
+
+- a area do user 'mas', esta acessivel pela portal e com permissoes de criacao
+e edicao de qualquer arquivo para o grupo gmas-w
+
+- a area do user "mas" eh pequena (40 MEGA); desta forma,
+evitem colocar lixo, "temp" ou "old" etc.; evitem tambem largar
+arquivos gigantescos sem zipar
+
+- organizar os arquivos em diretórios
+
+- configurar permissoes de leitura e escrita para o grupo gmas-w
+
+Para que todos possam usar a area do user "mas" como ela foi planejada:
+
+- o arquivo A pode ficar com "ownership" pro usuario de voces (embora o
+correto fosse o user "mas") ENTRETANTO O GRUPO TEM QUE SER gmas-w
+senao nao adianta dar permissao de escrita para o grupo
+
+- mau exemplo:
+-rwxrwxr-- 1 fulano fulano tamanho dd/mm/aa arquivo.ext -> o grupo deveria ser
+gmas-w para que todos possam editar o arquivo
+
+- bom exemplo:
+opcao 1 (melhor):
+-rw-rw-r-- 1 mas gmas-w tamanho dd/mm/aa arquivo.ext (o user eh o
+proprio user "mas" e o grupo eh o gmas-w)
+
+opcao 2 :
+-rw-rw-r-- 1 fulano gmas-w tamanho dd/mm/aa arquivo.ext
+
+Como fazer pra mudar o ownership dos arquivos (ja que se vc se logar como
+fulano, vai criar um arquivo pertencente a fulano e por algum motivo o 
+grupo sera fulano tambem)
+
+para mudar grupo:
+
+chgrp - change group ownership
+
+SYNOPSIS
+       chgrp [OPTION]... GROUP FILE...
+       chgrp [OPTION]... --reference=RFILE FILE...
+
+DESCRIPTION
+       Change the group membership of each FILE to GROUP.
+
+
+para mudar owner/user:
+
+       chown - change file owner and group
+
+SYNOPSIS
+       chown [OPTION]... OWNER[:[GROUP]] FILE...
+       chown [OPTION]... :GROUP FILE...
+       chown [OPTION]... --reference=RFILE FILE...
+
+
+Mais informacoes: man chgrp

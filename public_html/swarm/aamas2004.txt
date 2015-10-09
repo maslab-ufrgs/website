@@ -1,0 +1,8 @@
+@InProceedings{Oliveira+2004aamas,
+  author =  {Oliveira, D. and Ferreira, P. and Bazzan, A.},
+  title = {A Swarm Based  Approach for Task Allocation in Dynamic Agents Organizations},
+  booktitle = {Proceedings of Third International Joint Conference on Autonomous Agents and Multi Agent System$
+  year = {2004},
+  address = {New York, USA},
+  note = {Poster}
+}

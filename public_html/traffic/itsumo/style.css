@@ -1,0 +1,14 @@
+.pagina a:link { COLOR: #336699; TEXT-DECORATION: none}
+.pagina a:visited { COLOR: #336699; TEXT-DECORATION: none}
+.pagina a:hover { COLOR: #cccccc;   font-style: italic;}
+.pagina a:active { COLOR: #cccccc;  font-style: italic; }
+
+.menu a:link { COLOR: #ffffff; TEXT-DECORATION: none }
+.menu a:visited { COLOR: #cccccc; TEXT-DECORATION: none }
+.menu a:hover { COLOR: #ffffff; font-style: italic; }
+.menu a:active { COLOR: #ffffff; font-style: italic; }
+
+.docu a:link { COLOR: #113366; font-size=200%; TEXT-DECORATION: none }
+.docu a:visited { COLOR: #113366; font-size=200%;TEXT-DECORATION: none }
+.docu a:hover { COLOR: #113366; font-style: italic; }
+.docu a:active { COLOR: #113366; font-style: italic; }

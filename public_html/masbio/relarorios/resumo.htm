@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>Resumo do Projeto</title>
+         
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+</head>
+  <body bgcolor="#ffffcc" link="#666600" vlink="#666600" alink="#666600">
+   
+<div align="center">     
+<p><b><font size="5">Overview of the Architecture </font></b></p>
+     
+<p align="left">ATUCG (Agent--based environmenT for aUtomatiC annotation of
+     Genomes) is an agent--based environment to automate most of the tedious 
+work      envolved in the genome annotation. </p>
+     
+<p align="left">Most of the automated methods are allocate to agents distributed 
+     in the different layers of the architecture. </p>
+ 
+<p align="center"><img src="projeto.gif" alt="Projeto" width="478"
+ height="349">
+  </p>
+        
+<p align="left"><b>Layer I</b> deals with the genome sequencing activities. 
+     Having received a file containing the DNA sequencing of a given organism, 
+     layer I is aimed at helping the user to define the Open Reading Frames 
+(ORFs).      To this means, specific programs are used, each regarding the 
+expertise of      a particular agent. The output that layer I passes to layer 
+II is a file containing      a list of non--redundant ORFs.<br>
+ </p>
+ 
+<div align="center"><img src="layer1.jpg" alt="Layer 1" width="680"
+ height="309">
+ <br>
+  </div>
+ 
+<p align="left"></p>
+     
+<p align="left"><b>Layer II</b> is perhaps the most interesting from the point
+     of view of both research and operational aspects, being also the most
+complex      to design and implement. The aim here is threefold: design of
+agents which      are experts on data extraction (e.g. from Swiss-prot and
+TrEMBL) and reformatting;      building of a database of rules for annotation 
+(this involves training and      validation stages using standard techniques 
+from Machine Learning); automatization      of the annotation of fields related 
+to motifs or profiles regarding families      of proteins (i.e. automating 
+the annotation regarding Prosite and Interpro      attributes). The main output
+passed to layer III is a set of proposed annotation      for selected attributes.<br>
+ <br>
+ </p>
+ 
+<div align="center"><img src="layer2.jpg" alt="Layer 2" width="776"
+ height="348">
+ <br>
+  </div>
+ 
+<p align="left"></p>
+     
+<p align="left"><b><br>
+ Layer III</b> helps the user perform the verification of      the proposed 
+annotation mainly by ``translating'' the rules for annotation      into a 
+semantically richer language and presenting it in a more understandable 
+    form. This is done by linking attributes presented in the rules to more 
+complete      data extracted from databases such as Prosite and Interpro.<br>
+ <br>
+ </p>
+ 
+<div align="center"><img src="layer3.jpg" alt="Layer 3" width="681"
+ height="274">
+ <br>
+  </div>
+ 
+<p align="left"></p>
+     
+<p align="center"><br>
+ </p>
+    </div>
+  <br>
+ <br>
+</body>
+</html>

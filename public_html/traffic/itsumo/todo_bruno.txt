@@ -1,0 +1,28 @@
+TAREFAS PENDENTES -- PROJETO SIMULADOR DE TRAFEGO
+
+
+*******|
+Bruno  |
+-------|---------------------------------------------------------
+
+Alterar interface de edicao da topologia para remover
+	sensortime step
+	agenttime step
+		e tambem tirar esses dados do xml da topologia
+
+Alterar valores defaults na interface de edicao da topologia
+	ex: vel. default 10 -> 3
+
+
+Corrigir bug no simulador
+	geracao dos logs de visualization stopped cars e relative nao tao 
+ 	funcionando
+
+Melhorar a interface de edicao da topologia, no desenho das fases
+	usar setas, e nao retas, para indicar a direcao permitida
+
+No visualizador
+        colocar um "circulo" nas interseccoes "retas" (sem semaforo)
+        pintar uma marca verde em cima da lane que abre pra algum lugar qualquer
+        tirar a grama!
+-----------------------------------------------------------------

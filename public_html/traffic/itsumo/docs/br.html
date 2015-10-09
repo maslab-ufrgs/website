@@ -1,0 +1,2655 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+
+  
+  <meta name="generator" content="Bluefish 1.0.4">
+
+  
+
+
+  
+  <title>ITSUMO simulator documentation</title>
+  <style type="text/css">
+:link { color: #333399 }
+:visited { color: #333399 }
+:active { color: #33399 }
+div.c14 {text-align: justify;}
+li.c13 {list-style: none}
+div.c12 {text-align: center}
+span.c11 {font-family: Tahoma, Arial, sans-serif}
+h1.c10 {font-family: Tahoma, Arial, sans-serif}
+h3.c9 {margin-left: 0cm; text-ident: 0cm;}
+h3.c8 {margin-left: 0cm; text-indent: 0cm;}
+h2.c7 {margin-left: 0cm; text-indent: 0cm;}
+span.c6 {font-size: 70%}
+p.c4 {font-weight: bold}
+span.c3 {font-family: Tahoma, Arial, sans-serif; font-size: 120%}
+span.c1 {font-size: 150%}
+  </style>
+</head>
+
+
+<body>
+
+
+<h2></h2>
+
+
+<h1>Documenta&ccedil;&atilde;o T&eacute;cnica do
+ITSUMO</h1>
+
+
+<a name="_topo"></a>
+<p class="c4">&Iacute;ndice</p>
+
+
+<ol>
+
+
+  <li><a href="#_Sobre_este_documento"><b><span>Sobre
+este
+documento</span></b></a></li>
+
+
+  <li><a href="#_Resumo_do_Projeto"><b><span>Resumo
+do
+Projeto</span></b></a></li>
+
+
+  <li><a href="#_Fundamentacao_Teorica"><b><span>Fundamenta&ccedil;&atilde;o
+Te&oacute;rica</span></b></a>
+    
+    <ul type="disc">
+
+
+      <li><a href="#_Automato_Celular"><b><span>Aut&ocirc;mato
+Celular</span></b></a></li>
+
+
+      <li><a href="#_Modelo_de_Nagel_Schreckenberg"><b><span>Modelo
+de
+Nagel Schreckenberg</span></b></a></li>
+
+
+      <li><a href="#_Cenario_de_Simulacao"><b><span>Cen&aacute;rio
+de
+Simula&ccedil;&atilde;o</span></b></a>
+        
+        <ul>
+
+
+          <li><a href="#_network"><b><span>Network</span></b></a></li>
+
+
+          <li><a href="#_nodes"><b><span>Nodes</span></b></a></li>
+
+
+          <li><a href="#_sink"><b><span>Sink</span></b></a></li>
+
+
+          <li><a href="#_source"><b><span>Source</span></b></a></li>
+
+
+          <li><a href="#_streets"><b><span>Streets/section/lane/laneset</span></b></a></li>
+
+
+          <li><a href="#_traffic"><b><span>Traffic
+Lights</span></b></a></li>
+
+
+          <li><a href="#_turnposs"><b><span>Turning
+Possibilities</span></b></a></li>
+
+
+          <li><a href="#_turnprob"><b><span>Turning
+Probabilities</span></b></a></li>
+
+
+        
+        </ul>
+
+
+      </li>
+
+
+    
+    </ul>
+
+
+  </li>
+
+
+  <li><a href="#_Instalacao"><b><span>Instala&ccedil;&atilde;o</span></b></a></li>
+
+
+  <li><a href="#_Processos"><b><span>Interface
+e
+Processos</span></b></a>
+    
+    <ul>
+
+
+      <li><a href="#_Arquivo_de_Configura%C3%A7%C3%A3o"><b><span>Gerando
+a Configura&ccedil;&atilde;o</span></b></a></li>
+
+
+      <li><a href="#_criacao"><b><span>Cria&ccedil;&atilde;o
+de um
+Cen&aacute;rio de Simula&ccedil;&atilde;o</span></b></a>
+        
+        <ul>
+
+
+          <li><a href="#_Network"><b>Network</b></a></li>
+
+
+          <li><a href="#_Criacao_de_nodos"><b><span>Cria&ccedil;&atilde;o
+de
+Nodos</span></b></a></li>
+
+
+          <li><a href="#_Vias_de_Circ"><b><span>Cria&ccedil;&atilde;o/Edi&ccedil;&atilde;o
+das Vias de Circula&ccedil;&atilde;o</span></b></a></li>
+
+
+          <li><a href="#_Sinks_e_Sources"><b><span>Sinks
+e
+Sources</span></b></a></li>
+
+
+          <li><a href="#_Traffic_Lights"><b><span>Traffic
+Lights</span></b></a></li>
+
+
+        
+        </ul>
+
+
+      </li>
+
+
+      <li><a href="#_Conf_Agentes"><b><span>Configura&ccedil;&atilde;o
+dos Agentes Semaf&oacute;ricos</span></b></a></li>
+
+
+      <li><a href="#_Gerando_a_Visualiza%C3%A7%C3%A3o"><b><span>Simulando
+e Gerando a Visualiza&ccedil;&atilde;o</span></b></a></li>
+
+
+    
+    </ul>
+
+
+  </li>
+
+
+  <li><a href="br.html#_Agentes"><b><span>Agentes
+Semaf&oacute;ricos</span></b></a>
+    
+    <ul>
+
+
+      <li><a href="br.html#_Desc_Agentes"><b><span>Descri&ccedil;&atilde;o</span></b></a></li>
+
+
+    
+    </ul>
+
+
+    
+    <ul>
+
+
+      <li><a href="br.html#_Organiza_Agentes"><b><span>Organiza&ccedil;&atilde;o</span></b></a></li>
+
+
+    
+    </ul>
+
+
+    
+    <ul>
+
+
+      <li><a href="br.html#_Protocolo_Agentes"><b><span>Protocolos</span></b></a></li>
+
+
+    
+    </ul>
+
+
+  </li>
+
+
+  <li><a href="br.html#_Modelagem_de_Motoristas"><b><span>Agentes
+Motoristas</span></b></a>
+    
+    <ul>
+
+
+      <li><a href="br.html#_Modelagem_no_simulador"><b><span>Modelagem</span></b></a></li>
+
+
+    
+    </ul>
+
+
+  </li>
+
+
+  <li><b><a href="br.html#_Problemas"><b><span>Solu&ccedil;&atilde;o
+de
+Problemas</span></b></a></b> </li>
+
+
+</ol>
+
+
+<br>
+
+
+<br>
+
+
+<h1><a name="_Sobre_este_documento">Sobre este
+Documento</a></h1>
+
+
+Este documento foi escrito com o objetivo de permitir a
+absor&ccedil;&atilde;o do projeto por novos integrantes da
+equipe
+ou interessados em geral em seus aspectos t&eacute;cnicos. Como
+tal, este documento est&aacute; dividido em 2 partes:
+Fundamenta&ccedil;&atilde;o Te&oacute;rica e Processos do
+Sistema.
+Para os interessados nos aspectos te&oacute;ricos que embasam o
+presente trabalho, recomenda-se a leitura da
+se&ccedil;&atilde;o
+Fundamenta&ccedil;&atilde;o Te&oacute;rica. Caso seja um
+usu&aacute;rio
+que necessita de utilizar o sistema, encontrar&aacute; a ajuda
+necess&aacute;ria na se&ccedil;&atilde;o Processos.<br>
+
+
+<a href="#_topo"><b><span class="c6">(Voltar
+Topo)</span></b></a>
+<h1><br>
+
+
+<a name="_Resumo_do_Projeto">Resumo do Projeto&nbsp;</a></h1>
+
+
+O projeto visa a cria&ccedil;&atilde;o de um sistema de
+informa&ccedil;&atilde;o para mobilidade urbana, capaz de
+interligar subsistemas distintos como centrais de controle de
+tr&aacute;fego, sistemas de consulta via Internet, e centrais de
+ger&ecirc;ncia de estacionamentos, provendo
+informa&ccedil;&atilde;o em tempo real aos usu&aacute;rios.
+O
+objetivo do projeto &eacute; o controle &oacute;timo dos
+sem&aacute;foros, com redu&ccedil;&atilde;o do consumo de
+combust&iacute;vel e dos atrasos de viagens em vias urbanas.
+Espera-se com este projeto a melhoria da qualidade de vida dos
+usu&aacute;rios, a quebra de reservas de mercado devidas a
+protocolos de comunica&ccedil;&atilde;o
+propriet&aacute;rios,
+introduzindo a competi&ccedil;&atilde;o no setor, e a
+expans&atilde;o futura para abarcar os v&aacute;rios aspectos
+envolvidos na mobilidade urbana, facilitada pela arquitetura
+padronizada de software.<br>
+
+
+<a href="#_topo"><b><span class="c6">(Voltar
+Topo)</span></b></a>
+<h1><br>
+
+
+<a name="_Fundamentacao_Teorica">Fundamenta&ccedil;&atilde;o
+Te&oacute;rica</a></h1>
+
+
+<br>
+
+
+<h2 class="c7"><br>
+
+
+<a name="_Modelo_de_Nagel_Schreckenberg">Modelo de Nagel
+Schreckenberg</a></h2>
+
+
+O modelo de Nagel-Schreckenberg &eacute; baseado em um
+aut&ocirc;mato celular, o qual divide um trecho qualquer de uma via
+em partes elementares de comprimento fixo (c&eacute;lulas) e
+executa simula&ccedil;&otilde;es em passos discretos de tempo
+(itera&ccedil;&otilde;es). Neste modelo, cada
+ve&iacute;culo possui
+uma velocidade v e se movimenta de acordo com
+rela&ccedil;&otilde;es bastante simples, envolvendo
+principalmente
+a sua velocidade e a posi&ccedil;&atilde;o relativa entre os
+carros
+(gap). O modelo utilizado no projeto &eacute; baseado no
+aut&ocirc;mato de Nagel-Schreckenberg, com algumas
+extens&otilde;es
+ao modelo original.<br>
+
+
+<a href="#_topo"><b><span class="c6">(Voltar
+Topo)</span></b></a><!-- CENARIO DE SIMULAÇÃO -->
+<h2 class="c7"><br>
+
+
+<a name="_Cenario_de_Simulacao">Cen&aacute;rio de
+Simula&ccedil;&atilde;o</a></h2>
+
+
+Para que se rode uma simula&ccedil;&atilde;o &eacute;
+necess&aacute;rio
+montar, um cen&aacute;rio de simula&ccedil;&atilde;o. Um
+cen&aacute;rio de simula&ccedil;&atilde;o &eacute; uma
+representa&ccedil;&atilde;o dos elementos
+topol&oacute;gicos
+est&aacute;ticos (ruas, cruzamentos, vias, faixas, etc) e
+din&acirc;micos (sem&aacute;foros) existentes no mundo real. Os
+objetos representativos s&atilde;o descritos a seguir:
+<h3 class="c8"><a name="_Network">Network</a></h3>
+
+
+Este objeto representa a rede ou malha vi&aacute;ria. Nele est&atilde;o
+contidos todos os objetos representativos dos elementos
+topol&oacute;gicos est&aacute;ticos e din&acirc;micos. Para
+cada
+network &eacute; associada um conjunto de vari&aacute;veis
+topol&oacute;gicas gerais, tais como, por exemplo, o tamanho da
+c&eacute;lula, tempo de ciclo da simula&ccedil;&atilde;o, o
+sistema
+de tr&aacute;fego e tamanho da c&eacute;lula.
+<h3 class="c8"><br>
+
+
+<a name="_nodes">Nodes</a></h3>
+
+
+Este objeto &eacute; espacialmente referenciado, ou seja,
+cont&ecirc;m coordenadas x e y segundo o sistema de coordenadas
+Cartesiano com o eixo y espelhado, como mostra a figura:
+<div class="c12"><img src="coord.png"></div>
+
+
+Este representa um cruzamento servindo como
+ponto de conex&atilde;o entre os objetos do tipo <a href="#_Streets">Streets</a>. Este objeto representa,
+tamb&eacute;m, os
+pontos da extremidade do cen&aacute;rio onde ficam localizados os
+objetos do tipo <a name="#_Source">Source</a> e <a name="#_Sink">Sink.</a>
+<h3 class="c8"><br>
+
+
+<a name="_streets">Streets/Sections/Laneset/Lane</a></h3>
+
+
+Estes objetos representam os logradouros, as quadras dos
+logradouros, as vias de circula&ccedil;&atilde;o nas quadras e
+as
+faixas de rodagem das vias respectivamente. Cada street(logradouro)
+est&aacute; associada a um conjunto de Sections(quadras). Uma
+Section possui um conjunto de Lanesets(vias), que por sua vez
+cont&ecirc;m um conjunto de Lanes(faixas).
+<h3 class="c8"><br>
+
+
+<a name="_source">Source</a></h3>
+
+
+Este objeto permite a inser&ccedil;&atilde;o de ve&iacute;culos na
+Network. A sua fun&ccedil;&atilde;o &eacute; inserir
+ve&iacute;culos numa determinada Laneset.<br>
+
+
+Existem 4 formas de inser&ccedil;&atilde;o de ve&iacute;culos:<br>
+
+
+-<strong>Probabilidade Constante:</strong> Em cada
+<strong><i>n</i></strong> tempos de ciclos
+&eacute; inserido
+<strong><i>x</i></strong> ve&iacute;culos com
+probabilidade
+<strong><i>p</i></strong><br>
+
+
+-<strong>Probabilidade Vari&aacute;vel:</strong> Em
+pr&eacute;-determinados tempos de ciclos &eacute; inserido
+<strong><i>x</i></strong> ve&iacute;culos com
+probabilidade
+<strong><i>p</i></strong><br>
+
+
+-<strong>Fluxo Constante:</strong> Em cada
+<strong><i>n</i></strong> tempos de ciclos
+&eacute; inserido
+<strong><i>x</i></strong> ve&iacute;culos<br>
+
+
+-<strong>Fluxo Vari&aacute;vel:</strong> Em
+pr&eacute;-determinados
+tempos de ciclos &eacute; inserido <strong><i>x</i></strong>
+ve&iacute;culos.
+<h3 class="c8"><br>
+
+
+<a name="_sink">Sink</a></h3>
+
+
+Este objeto permite a remo&ccedil;&atilde;o de ve&iacute;culos na
+Network.
+A sua fun&ccedil;&atilde;o &eacute; remover todos os
+ve&iacute;culos da
+laneset a que est&aacute; conectada.
+<h3 class="c8"><br>
+
+
+<a name="_traffic">Traffic Light</a></h3>
+
+
+Estes objetos representam os sem&aacute;foros e os Planos
+Semaf&oacute;ricos (Semaforic Plan) contidos nesses
+sem&aacute;foros. Um plano semaf&oacute;rico &eacute;
+constituido
+por diversas "Fases" (Phases). Cada Fase tem um tempo de inicio e
+um de fim, e o conjunto caminhos que podem ser transitados por
+ve&iacute;culos nesse intervalo de tempo. Esses caminhos s&atilde;o
+representados por um conjunto de pares de lanes, a Lane de partida
+(Lane From) e a Lane de chegada (Lane To).<br>
+
+
+<h3 class="c9"><br>
+
+
+<a name="_turnposs">Turning Possibilities</a></h3>
+
+
+Este objeto permite descrever as possibilidades de um veiculo mudar
+de dire&ccedil;&atilde;o, de uma lane para uma laneset, num
+determinado node.
+<h3 class="c8"><br>
+
+
+<a name="_turnprob">Turning Probabilities</a></h3>
+
+
+Este objeto permite descrever as probabilidades de um veiculo mudar
+em cada umas das dire&ccedil;&otilde;es possiveis. Essa
+probabilidade &eacute; descrita de uma laneset de origem (From)
+para uma laneset de chegada (To), num determinado node. A soma
+total das probabilidades &eacute; igual a 1.<br>
+
+
+<a href="#_topo"><strong><span class="c6">(Voltar
+Topo)</span></strong></a>
+<br>
+
+
+<!--
+<strong>Interface para configuração de parâmetros pré-determindados</strong><br>
+Consiste de uma forma prática e simples para configuração de
+motoristas. Parte-se de modelos existentes e devidamente implementados
+no simulador, através de programação C++, para maximizar a
+parametrização das funções responsáveis pela movimentação e
+inteligência dos agentes.<br>
+Dessa forma não há preocupações quanto a programação. No contexto de
+simulação alguns parâmetros ajustáveis são comuns aos modelos. Alguns
+dizem respeito à movimentação: velocidade máxima de tráfego,
+probabilidade de desaceleração, etc; e outros dizem respeito ao
+acompanhamento da simulação: valores de movimentação, cominhos
+percorridos, etc.
+<br><a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a><br><BR><BR>
+-->
+<!-- CRIAÇÃO -->
+<div class="c14">
+<h1 class="c10"><a name="_Instalacao">Instala&ccedil;&atilde;o</a></h1>
+
+
+<br>
+
+
+A vers&atilde;o disponibilizada do ITSUMO considera o uso de Linux
+apenas. Para a instala&ccedil;&atilde;o s&atilde;o
+necess&aacute;rios os seguintes pacotes instalados:
+<ul>
+
+
+  <li>Usando qualquer distribui&ccedil;&atilde;o Linux:</li>
+
+
+  
+  <ul>
+
+
+    <li>gcc<span style="font-family: monospace;"></span></li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li><span style="font-family: monospace;"></span>glibc<span style="font-family: monospace;"></span></li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li><span style="font-family: monospace;"></span>glibc-devel<span style="font-family: monospace;"></span></li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li><span style="font-family: monospace;"></span>glib<span style="font-family: monospace;"></span></li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li><span style="font-family: monospace;"></span>glib-devel<span style="font-family: monospace;"></span></li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li><span style="font-family: monospace;"></span>libstdc++</li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li>libstdc++-devel<span style="font-family: monospace;"></span></li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li>python</li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li>qt3</li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li>qt3-devel</li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li>PyQ (em algumas distribui&ccedil;&otilde;es
+PyQT distributions, &eacute; chamado kdebindings3-python ou
+python-qt3)</li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li>PyQT-devel</li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li><span style="font-family: monospace;"></span>python<span style="font-family: monospace;"></span></li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li><span style="font-family: monospace;"></span>python-devel</li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li>python-xml (chamado PyXML&nbsp;no Fedora Core 5)</li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li>freeglut</li>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li>freeglut-devel</li>
+
+
+  
+  </ul>
+
+
+  <li>Usando SUSE</li>
+
+
+  
+  <ul>
+
+
+    <li>kdebase3-devel&nbsp;</li>
+
+
+  
+  </ul>
+
+
+  <li>Usando Ubuntu 64 bits:</li>
+
+
+  
+  <ul>
+
+
+    <li>libqt3-compat-headers</li>
+
+
+    <li>libglpng&nbsp;</li>
+
+
+    <li>libglpng-dev
+    </li>
+
+
+  
+  </ul>
+
+
+  <li>Usando Fedora Core 5:</li>
+
+
+  
+  <ul>
+
+
+    <li>libXt</li>
+
+
+    <li>libXt-devel<span style="font-family: monospace;"></span></li>
+
+
+    <li><span style="font-family: monospace;"></span>libjpeg</li>
+
+
+    <li>libjpeg-devel</li>
+
+
+    <li>libmng</li>
+
+
+    <li>libmng-devel</li>
+
+
+  
+  </ul>
+
+
+</ul>
+
+
+<br>
+
+
+Ap&oacute;s a instala&ccedil;&atilde;o de todos os pacotes:<br>
+
+
+<br>
+
+
+1 - descompactar o arquivo zip fornecido;<br>
+
+
+2 - abrir um terminal modo texto; avan&ccedil;ar ate&nbsp;a
+pasta
+'$itsumo_root$/src' e digitar 'make';<br>
+
+
+<br>
+
+
+Organiza&ccedil;&atilde;o:<br>
+
+
+* na pasta '$itsumo_root$/src/' se encontram todos fontes do
+simulador.<br>
+
+
+* na pasta '$itsumo_root$/docs/' se encontra a documentacao do
+simulador.<br>
+
+
+* na pasta '$itsumo_root$/input/' se encontram arquivos de entrada
+do simulador, como xml de topologias, configuracoes, etc.<br>
+
+
+<br>
+
+
+Para rodar a interface do simulador, que centraliza todas as
+opera&ccedil;&otilde;es necess&aacute;rias para o
+usu&aacute;rio
+regular:<br>
+
+
+<br>
+
+
+1 - na pasta raiz do simulador, digitar './witsumo'; esse comando
+executar&aacute; a interface.<br>
+
+
+<br>
+
+
+Para problemas na instala&ccedil;&atilde;o e uso do simulador,
+consultar a <a href="#_Problemas"><strong>Solu&ccedil;&atilde;o
+de
+problemas</strong></a>.<br>
+
+
+<br>
+
+
+<a href="#_topo"><strong><span class="c6">(Voltar
+Topo)</span></strong></a><br>
+
+
+<br>
+
+
+<br>
+
+
+<br>
+
+
+<h1><a name="_Processos">Interface e Processos</a></h1>
+
+
+<br>
+
+
+<br>
+
+
+A interface &eacute; incicializada na pasta raiz do simulador ,
+digitando './witsumo'. Para uma simula&ccedil;&agrave;o,
+s&atilde;o necess&aacute;rios 2 ou 3
+arquivos de configura&ccedil;&atilde;o:<br>
+
+
+<br>
+
+
+1 - topologia: arquivo xml com as defini&ccedil;&otilde;es da
+topologia;<br>
+
+
+2 - configura&ccedil;&atilde;o: arquivo xml com as
+configura&ccedil;&otilde;es para rodar a
+simula&ccedil;&atilde;o
+(no. de passos, qual rede usar, etc);<br>
+
+
+3 - agentes: define o mapeamento de agentes sem&aacute;foros para
+controle semaf&oacute;rico (opcional!).<br>
+
+
+<br>
+
+
+Na interface principal temos 2 menus ao alto:<br>
+
+
+<br>
+
+
+1 - File: cont&eacute;m as opera&ccedil;&otilde;es para
+abrir,
+salvar e salvar como, referentes ao arquivo de
+configura&ccedil;&atilde;o. Ou seja, essas
+opera&ccedil;&otilde;es
+operam o que o nome indica sobre o arquivo de
+configura&ccedil;&atilde;o do simulador (item 2 acima).<br>
+
+
+2 - Help: com a primeira op&ccedil;&atilde;o desse menu
+&eacute;
+poss&iacute;vel visualizar a documenta&ccedil;&atilde;o em
+html do
+simulador.<br>
+
+
+<br>
+
+
+Al&eacute;m disso, 3 abas comp&otilde;em a interface principal:<br>
+
+
+<br>
+
+
+1 - Configuration: aqui s&atilde;o definidas as
+configura&ccedil;&otilde;es da simula&ccedil;&atilde;o,
+como
+sensores a serem usados, no. de passos, etc. A
+explica&ccedil;&atilde;o
+sobre cada item encontra-se nesta documenta&ccedil;&atilde;o.<br>
+
+
+2 - Agents Definition: aqui &eacute; feito o mapeamento dos agentes
+para os sem&aacute;foros, caso seja necess&aacute;rio uso dessa
+op&ccedil;&atilde;o.&nbsp;<br>
+
+
+3 - Simulation: aqui se encontram as op&ccedil;&otilde;es 'Run
+Simulation' que executa a simula&ccedil;&atilde;o com as
+configura&ccedil;&otilde;es definidas nas abas anteriores, e a
+op&ccedil;&atilde;o 'Visualize' que abre uma janela com a
+visualiza&ccedil;&atilde;o 3D. Uma vez que a janela esteja
+aberta,
+&eacute; necess&aacute;rio digitar 's' (start) para dar
+in&iacute;cio ao processo.<br>
+
+
+<br>
+
+
+<div class="c14"><span class="c11"><br>
+
+
+</span>
+<h1 class="c10"><span><a name="_Arquivo_de_Configura&ccedil;&atilde;o">Gerando a
+Configura&ccedil;&atilde;o</a></span></h1>
+
+
+<br>
+
+
+Para dar in&iacute;cio a uma simula&ccedil;&atilde;o e
+visualiza&ccedil;&atilde;o &eacute; necess&aacute;rio
+definir os
+par&acirc;metros de simula&ccedil;&atilde;o.<br>
+
+
+<br>
+
+
+<h2>Configura&ccedil;&atilde;o Geral</h2>
+
+
+<br>
+
+
+<br>
+
+
+Feita na aba Configuration. Ao abrir o programa (./witsumo)
+voc&ecirc; ver&aacute; uma janela como&nbsp;a da
+figura
+abaixo:<br>
+
+
+<br>
+
+
+<div class="c12"><img src="driverInter.png"></div>
+
+
+<br>
+
+
+<ol>
+
+
+  <li>Clique em 'Create New Net' (ver <a href="br.html#_criacao"><strong><span class="c6">aqui</span></strong></a>)
+para criar uma nova topologia, ou clique no bot&atilde;o 'Choose
+Net' e procure pelo arquivo gerado previamente pelo editor de
+topologias. Para visualizar a topologia
+selecionada, clique em 'See Net'</li>
+
+
+  <li>No campo Steps, escreva quantos passos voc&ecirc;
+deseja que a
+simula&ccedil;&atilde;o tenha e preencha tamb&eacute;m o
+campo
+Default Deceleration, que indica a desacelera&ccedil;&atilde;o
+padr&atilde;o para os ve&iacute;culos.</li>
+
+
+  <li>No painel Drivers, voc&ecirc; pode inserir motoristas
+personalizados:
+    
+    <ol>
+
+
+      <li>Clique em Insert Driver.</li>
+
+
+      <li>Agora selecione o tipo de motorista e clique em OK. <a name="_Tipos_de_Drivers"></a>
+        
+        <ul>
+
+
+          <li class="c13">H&aacute; alguns tipos tipos
+de morotistas:</li>
+
+
+          <li><strong>Modelo Standard:</strong><br>
+
+
+&Eacute; caracterizado por um comportamento aleat&oacute;rio,
+suas
+rotas s&atilde;o sorteadas a cada ponto de decis&atilde;o (cruzamento).
+&Eacute; utilizado especialmente para povoar o cen&aacute;rio,
+e
+&eacute; baseado no modelo b&aacute;sico de Aut&ocirc;matos
+Celulares.<br>
+
+
+          </li>
+
+
+          <li><strong>Modelo FC (Floating Car):</strong><br>
+
+
+Esse modelo de motorista apresenta um movimento pr&eacute;-definido
+pelo usu&aacute;rio ou engenheiro de tr&aacute;fego.<br>
+
+
+Definindo a rota do motorista:<br>
+
+
+            
+            <ol>
+
+
+              <li>Clique em Routes, quando o modelo FC
+est&aacute; selecionado, uma janela
+mostrando a vis&atilde;o geral da malha vi&aacute;ria em forma
+de
+grafo se abrir&aacute;, nessa janela, os nodos sources
+s&atilde;o
+coloridos em azul e os sink de vermelho.</li>
+
+
+              <li>Abaixo, na janela, fa&ccedil;a a
+sele&ccedil;&atilde;o do nodo
+de origem (From) e nodo destino (To) e clique em Add, note que a
+visualiza&ccedil;&atilde;o mudar&aacute; para verde a cor
+da rota
+selecionada.</li>
+
+
+              <li>Na tabela de rota, podem
+ser modificadas
+as probabilidades do motorista seguir cada rota.</li>
+
+
+              <li>Repita essa opera&ccedil;&atilde;o
+at&eacute; que todo o
+trajeto desejado esteja inserido, e clique em Ok. </li>
+
+
+            
+            </ol>
+
+
+            
+            <div class="c12"><img src="routeConf.png"></div>
+
+
+            <br>
+
+
+          </li>
+
+
+          <li><strong>Modelo IRC (Iterated Route Choice):</strong><br>
+
+
+Nesse modelo, o motorista aprende ao interagir com o cen&aacute;rio
+de forma a escolher entre duas rotas pr&eacute;-definidas
+atrav&eacute;s do uso de uma heur&iacute;stica baseada na
+dura&ccedil;&atilde;o do percurso das
+rotas nas &uacute;ltimas 'n'
+intera&ccedil;&otilde;es&nbsp;. O cen&aacute;rio
+&eacute; composto de uma laneset de
+entrada e duas rotas (rota 0, com maior capacidade
+de tr&aacute;fego, e rota 1, com menor capacidade de
+tr&aacute;fego
+em rela&ccedil;&atilde;o &agrave; rota 0) que ao final se
+encontram na laneset de destino na rede. Para um
+melhor entendimento deve ser consultado [KLUEGL, F., BAZZAN, A. L.
+C. Route Decision Behaviour in a Commuting Scenario: Simple
+Heuristics Adaptation and Effect of Traffic Forecast. In The
+Journal of Artificial Societies and Social Simulation, 2004]<br>
+
+
+Os par&acirc;metros que definem esse motorista s&atilde;o:<br>
+
+
+            
+            <ol>
+
+
+              <li>max_speed: velocidade maxima do motorista.</li>
+
+
+              <li>source_laneset: laneset por onde os motoristas
+entram na
+rede.</li>
+
+
+              <li>sink_laneset: laneset de convergencia, onde os
+motoristas saem
+da rede.</li>
+
+
+              <li>route0_begin: laneset que da inicio a rota 0.</li>
+
+
+              <li>route1_begin: laneset que da inicio a rota 1.</li>
+
+
+              <li>init_heuristic: valor de heuristica inicial.</li>
+
+
+              <li>learn_prob: probabilidade de aprendizagem.</li>
+
+
+              <li>hist_size: tamanho do historico de aprendizagem
+(quantos
+valores ele armazena para reavaliacao da heuristica).</li>
+
+
+            
+            </ol>
+
+
+          </li>
+
+
+          <li><strong>Modelo Braess:</strong><br>
+
+
+Modelo de motorista adaptado para o paradoxo de Braess. Para um
+correto entendimento deve ser consultado [BAZZAN, A. L. C., BOFFO,
+F., KLUEGL, F. Avoiding the Braess Paradox with Information
+Manipulation In: Proc. of the Workshop Agents in Traffic and
+Transportation, 2004, New York].<br>
+
+
+          </li>
+
+
+        
+        </ul>
+
+
+      </li>
+
+
+      <li>Clique no campo State, e selecione ON, caso
+contr&aacute;rio
+esses motiristas n&atilde;o ser&atilde;o adicionados
+&agrave;
+simula&ccedil;&atilde;o.</li>
+
+
+      <li>Preencha tamb&eacute;m o campo max speed com a
+velocidade
+m&aacute;xima desse motorista.</li>
+
+
+    
+    </ol>
+
+
+  </li>
+
+
+  <li>No painel Sensors, &eacute; feita a
+inser&ccedil;&atilde;o de
+sensores, eles s&atilde;o utilizados para coletar e registrar
+medi&ccedil;&otilde;es feitas na malha ao longo da
+simula&ccedil;&atilde;o, e esses dados ser&atilde;o salvos
+no
+arquivo indicado no campo "Sensor File", abaixo est&atilde;o
+listados os tipos de sensores:
+    
+    <ul>
+
+
+      <li class="c13"><a name="_Tipos_de_Sensores"></a></li>
+
+
+      <li><strong>lane sensor:</strong> mapa de
+c&eacute;lulas com
+ocupa&ccedil;&atilde;o (ve&iacute;culos), densidade e
+velocidade
+m&eacute;dia na lane<br>
+
+
+      </li>
+
+
+      <li><strong>laneset sensor:</strong> densidade
+das lanesets que
+est&atilde;o ligadas a um nodo com sem&aacute;foro<br>
+
+
+      </li>
+
+
+      <li><strong>section in columns sensor:</strong>
+densidade e
+velocidade m&eacute;dias para cada section<br>
+
+
+      </li>
+
+
+      <li><strong>section in columns sensor printing names:</strong>
+densidade e velocidade m&eacute;dias para cada section e o nome
+desta<br>
+
+
+      </li>
+
+
+      <li><strong>visualization of section desities:</strong>
+apresenta
+densidade de cada section formatada para leitura do m&oacute;dulo
+visualizador</li>
+
+
+      <li><strong>visualization of section relative
+densities:</strong>
+densidades relativas para cada section, ou seja, caso haja um
+sem&aacute;foro a densidade m&aacute;xima = 1, caso
+contr&aacute;rio densidade = 1/velocidade m&aacute;xima,
+formatado
+pera leitura pelo m&oacute;dulo visualizador<br>
+
+
+      </li>
+
+
+      <li><strong>visualization os stopped cars in section:</strong>
+n&uacute;mero relativo de carros parados na section, ou seja,
+n&uacute;mero de carros parados / n&uacute;mero de
+c&eacute;lulas,
+formatado para leitura pelo m&oacute;dulo visualizador<br>
+
+
+      </li>
+
+
+      <li><strong>stopped cars in laneset:</strong>
+imprime o
+n&uacute;mero total de carros e o n&uacute;mero de carros
+parados
+na laneset<br>
+
+
+      </li>
+
+
+      <li><strong>total stopped cars in network:</strong>
+imprime o
+n&uacute;mero total de carros parados na rede<br>
+
+
+      </li>
+
+
+    
+    </ul>
+
+
+  </li>
+
+
+  <li>Clique em Insert Sensor, selecione o tipo de sensor e
+clique
+em
+OK.</li>
+
+
+  <li>Como para os Drivers, selecione ON no campo State.<br>
+
+
+    
+    <div class="c12"><img src="driverInter2.png"></div>
+
+
+<!--
+<strong>Driver Configuration</strong>
+<li>Agora clique na aba superio "Driver Configuration", essa é a parte onde são editadas as configurações dos modelos de
+motoristas, note, entretanto, que a edição dos modelos não é obrigatória. É possível também a criação de novos modelos,
+seguindo os seguintes passos:<br><br>
+<ul><li>Clique em New Model, agora será necessária a edição do novo modelo, preenchendo os seguintes campos:<br><br>
+<li><strong>Model Name:</strong> nome do motorista. Define o nome ao qual o modelo se refere em
+nível de código. Ou seja, qual a classe a qual ele pertence.<br><br>
+<li><strong>Model Nickname:</strong> nome do motorista que será apresentado ao usuário.<br><br>
+<li><strong>Options:</strong> variáveis possíveis a serem configuradas para o modelo no momento de instanciação da simulação,
+descrita na aba File Configuration.<br><br>
+</ul>
+<div align="center"><img src="driverConf.png"></div>
+--></li>
+
+
+  <li>Agora salve seu arquivo de
+configura&ccedil;&atilde;o pelo menu File-&gt;Save.</li>
+
+
+</ol>
+
+
+<a href="#_topo"><strong><span class="c6">(Voltar ao Topo)</span></strong></a>
+<h2><a name="_criacao">Cria&ccedil;&atilde;o
+de um Cen&aacute;rio
+de Simula&ccedil;&atilde;o</a></h2>
+
+
+<br>
+
+
+Para criar uma nova topologia, clicar em "Create New Net" a aba
+'Configuration' da interface. A janela do editor de topologias
+ser&aacute; aberta.
+<h3><a name="_Network">Network:</a></h3>
+
+
+Para criar uma nova rede, v&aacute; em File-&gt;New,
+ser&aacute;
+criada uma nova rede&nbsp;com o nome de empty.xml. O nome da rede
+pode
+ser modificado com o salvamento da rede, quando o programa
+perguntar&aacute; por um nome para o arquivo a ser salvo.
+(File-&gt;save) A cria&ccedil;&atilde;o da rede deve
+obrigatoriamente come&ccedil;ar pela
+cria&ccedil;&atilde;o
+dos nodos, com eles, ser&aacute; poss&iacute;vel criar ruas,
+"sinks", "sources" e "traffic lights".<br>
+
+
+<br>
+
+
+<h3><a name="_Criacao_de_nodos">Cria&ccedil;&atilde;o
+de
+nodos</a></h3>
+
+
+<ol>
+
+
+  <li>Clique em Nodes. </li>
+
+
+  <li>Clique em "Create another node". </li>
+
+
+  <li>Escolha um nome para o nodo (Node name), logo em seguida
+escreva as coordenadas do nodo (X coordinate, e Y
+coordinate). As coordenadas devem seguir o sistema mostrado na
+Se&ccedil;&atilde;o <a href="#_nodes">Nodos</a>.
+  </li>
+
+
+  <li>Repita os passos de 1 a 3 at&eacute; que todos os nodos
+tenham
+sido criados.</li>
+
+
+</ol>
+
+
+<br>
+
+
+<h3><a name="_Vias_de_Circ">Cria&ccedil;&atilde;o/Edi&ccedil;&atilde;o
+das Vias
+de Circula&ccedil;&atilde;o
+</a>(Streets/section/lane/laneset)</h3>
+
+
+Para criar uma rua, devem ser selecionados os nodos que fazem parte
+dela, lembrando que os sinks e sources DEVEM ser inclu&iacute;dos
+na rua<br>
+
+
+<ol>
+
+
+  <li>Clique em "streets". </li>
+
+
+  <li>Na se&ccedil;&atilde;o "strees creation", selecione
+um nodo,
+ent&atilde;o clique no bot&atilde;o de
+inser&ccedil;&atilde;o, a
+ordem de
+inser&ccedil;&atilde;o dos nodos &eacute; extremamente
+importante,
+logo, para uma rua que contenha os nodos n1,n2 e n3,
+respectivamente, os nodos devem ser inseridos nessa ordem. </li>
+
+
+  <li>Repita a opera&ccedil;&atilde;o at&eacute; que
+todos os nodos
+pertencentes &agrave; rua estejam inseridos. </li>
+
+
+  <li>Em "street name" escreva o nome da rua. </li>
+
+
+  <li>Em "orientation, selecione "one_way" para ruas de uma
+m&atilde;o, ou "two_way" para ruas de duas m&atilde;os. </li>
+
+
+  <li>Em "lanes in each direction" escreva quantas faixas tem a
+rua,
+se a rua tem diferentes n&uacute;meros de faixas em
+se&ccedil;&otilde;es
+diferentes,<br>
+
+
+coloque o m&aacute;ximo de faixas que a rua possui, a
+remo&ccedil;&atilde;o e edi&ccedil;&atilde;o de faixas
+ser&atilde;o
+abordada posteriormente. </li>
+
+
+  <li>No &uacute;ltimo campo, selecione a velocidade
+m&aacute;xima na
+rua. </li>
+
+
+</ol>
+
+
+<br>
+
+
+<div class="c12"><img src="street.png"></div>
+
+
+<br>
+
+
+<h3>Editando as Vias de Circula&ccedil;&atilde;o</h3>
+
+
+<br>
+
+
+<strong>Adicionando e removendo sections</strong><br>
+
+
+<ol>
+
+
+  <li>Para adicionar sections em uma rua, v&aacute; em
+network-&gt;streets, e selecione a rua desejada. </li>
+
+
+  <li>Clique com o bot&atilde;o direito do mouse na rua e
+selecione
+"Add new section". </li>
+
+
+  <li>Edite as configura&ccedil;&otilde;es da nova section
+no painel
+"Section edit", que aparecer&aacute; no lado direito da
+tela. </li>
+
+
+</ol>
+
+
+Para remover uma section, repita o passo 1, ent&atilde;o clique com
+o bot&atilde;o direito do mouse na section a ser
+exclu&iacute;da e
+selecione "Delete this section".<br>
+
+
+<br>
+
+
+<strong>Adicionando e removendo lanesets e lanes</strong><br>
+
+
+A edi&ccedil;&atilde;o das sections &eacute; feita de modo
+an&aacute;logo &agrave; edi&ccedil;&atilde;o de
+streets, v&aacute;
+em network-&gt;streets, e selecione a section a ser editada,
+inclus&otilde;es e exclus&otilde;es de lanes e lanesets
+s&atilde;o
+feitas do mesmo modo utilizado para as sections.<br>
+
+
+<br>
+
+
+<a name="_turnprob-street"><strong>Turning
+Probabilities</strong></a><br>
+
+
+Aqui tamb&eacute;m s&atilde;o editadas as probabilidades de um
+carro
+tomar cada dire&ccedil;&atilde;o no nodo. Isso &eacute;
+feito na
+section de onde partem os carros. V&aacute;
+em "network", clique em streets, selecione a rua que possui a
+section, e finalmente, selecione a section. Na parte direita da
+tela aparecer&aacute; um painel como na figura abaixo, mostrando as
+sections destino, e a chance de um carro ir para cada uma delas.
+Voc&ecirc; pode editar os valores do campo "Probability", mas a
+soma das probabilidades deve ser 100 (caso n&atilde;o seja
+poss&iacute;vel, use
+99,9).<br>
+
+
+<br>
+
+
+<h3><a name="_Sinks_e_Sources">Sinks e Sources</a></h3>
+
+
+Sinks e sources s&atilde;o nodos que podem colocar ou retirar
+ve&iacute;culos da rede, logo eles deve ser criados em nodos
+previamente
+existente. Um nodo pode, ao mesmo tempo, ser um sink e um
+source.<br>
+
+
+<br>
+
+
+<strong>Criando um source:</strong><br>
+
+
+<ol>
+
+
+  <li>Em 'network', clique source. </li>
+
+
+  <li>Agora no lado direito da tela, clique em "Create a source",
+novos campos aparecer&atilde;o na tela. </li>
+
+
+  <li>O campo "First activation at iteraction (..) indica a
+partir de
+qual itera&ccedil;&atilde;o o source
+come&ccedil;ar&aacute; a
+funcionar. </li>
+
+
+  <li>Em "node", selecione o nodo onde o source
+ser&aacute;
+criado. </li>
+
+
+  <li>Em "target laneset", seleciona a laneset para onde o source
+criar&aacute; carros. </li>
+
+
+  <li>Em "Activate every (..) iteractions", escreva a cada
+quantas
+itera&ccedil;&otilde;es o source ser&aacute; acionado. </li>
+
+
+  <li>Em "type", selecione o modo como os carros ser&atilde;o
+inseridos, h&aacute; 4 modos de inser&ccedil;&atilde;o de
+carros:<br>
+
+
+    
+    <ul>
+
+
+      <li>Constant Probability: Insere ve&iacute;culos com probabilidade
+constante (Vehicles Insertion Rate)</li>
+
+
+      <li>Variable Probability: Insere ve&iacute;culos com probabilidade
+variavel.</li>
+
+
+      <li>Constant Flow:Insere um n&uacute;mero fixo de
+ve&iacute;culos em cada
+tempo de ciclo.</li>
+
+
+      <li>Variable Flow:Insere um determinado n&uacute;mero
+de ve&iacute;culos
+em cada tempo de ciclo</li>
+
+
+    
+    </ul>
+
+
+  </li>
+
+
+</ol>
+
+
+<div class="c12"><img src="source.png"></div>
+
+
+<br>
+
+
+<strong>Criando um sink:</strong><br>
+
+
+<ol>
+
+
+  <li>Em 'network', clique sink. </li>
+
+
+  <li>Agora no lado direito da tela, clique em "Create a sink",
+novos
+campos aparecer&atilde;o na tela. </li>
+
+
+  <li>O campo "First activation at iteraction (..) indica a
+partir de
+qual itera&ccedil;&atilde;o o sink
+come&ccedil;ar&aacute;&iexcl; a
+funcionar. </li>
+
+
+  <li>Em "Removal probability", selecione a probabilidade (de 0 a
+1)
+de o sink remover um carro que passa por ele. </li>
+
+
+  <li>Em "Node", selecione o nodo onde o sink ser&aacute;
+criado. </li>
+
+
+  <li>em "Source laneset" selecione a laneset de onde o sink
+retirar&aacute; carros. </li>
+
+
+</ol>
+
+
+<br>
+
+
+<br>
+
+
+<h3><a name="_Traffic_Lights">Traffic Lights</a></h3>
+
+
+<br>
+
+
+<strong>Criando os traffic lights:</strong>
+<ol>
+
+
+  <li>Em "network", clique em "traffic lights".</li>
+
+
+  <li>Escolha o nodo onde o traffic light ser&aacute; criado
+e clique
+em "Create traffic light".</li>
+
+
+  <li>Agora voc&ecirc; ver&aacute; uma tela com uma
+imagem do nodo
+onde o traffic light foi criado, e com o painel "signal plan
+edit".<br>
+
+
+  </li>
+
+
+</ol>
+
+
+<strong>Criando novos signalplans:</strong><br>
+
+
+A cria&ccedil;&atilde;o de um novo plano semaf&oacute;rico
+deve ser
+feita em todos os traffic lights, para isso, em "network", clique
+em "traffic lights", em seguida, clique com o bot&atilde;o direito
+do mouse no traffic light desejado e ent&atilde;o em "Add new signalplan",
+lembrando que a opera&ccedil;&atilde;o deve ser repetida para
+todos
+os traffic lights.<br>
+
+
+<br>
+
+
+<strong>Editando o plano semaf&oacute;rico</strong><br>
+
+
+Nesse painel ser&atilde;o criadas as fases do plano
+semaf&oacute;rico, cada traffic light deve ter pelo menos uma fase:
+<ol>
+
+
+  <li>Clique em "Add phase".</li>
+
+
+  <li>Ajuste o tempo de dura&ccedil;&atilde;o da fase em
+"Selected
+phase duration".</li>
+
+
+  <li>Agora voc&ecirc; deve adicionar os movimentos
+permitidos nesta phase, lembrando
+que esses movimentos partem das "incoming lanes" e v&atilde;o para
+as "outgoing lanes". Para fazer isso, clique na lane de onde vem o
+movimento e arraste
+at&eacute; a laneset alvo, ent&atilde;o solte o mouse. Note que
+uma
+linha colorida ser&aacute; criada, indicando que o movimento
+&eacute; poss&iacute;vel, veja a Figura abaixo. Agora repita a
+opera&ccedil;&atilde;o
+at&eacute;
+que tenha terminado todos os movimentos poss&iacute;veis para essa fase,
+lembre-se que se um movimento &eacute; poss&iacute;vel, ele deve partir de
+TODAS as lanes da laneset de origem.<br>
+
+
+    
+    <pre>* Ap&oacute;s a edi&ccedil;&atilde;o dos planos semaf&oacute;ricos, as <a href="#_turnprob-street">Turning Probabilities</a> tamb&eacute;m devem ser reeditadas.</pre>
+
+
+  </li>
+
+
+</ol>
+
+
+<br>
+
+
+<strong><br>
+
+
+</strong>
+<div class="c12"><img src="trafficlight.png"></div>
+
+
+<br>
+
+
+<a href="#_topo"><strong><span class="c6">(Voltar ao Topo)</span></strong></a>
+</div>
+
+
+<h2><a name="_Conf_Agentes">Configura&ccedil;&atilde;o
+dos Agentes
+Semaf&oacute;ricos</a></h2>
+
+
+A configura&ccedil;&atilde;o dos agentes semaf&oacute;ricos
+pode
+ser feita na aba 'Agent Definition'. <br>
+
+
+<a href="#_topo"><strong><span class="c6">(Voltar ao Topo)</span></strong></a><br>
+
+
+<br>
+
+
+<h2><a name="_Gerando_a_Visualiza&ccedil;&atilde;o">Simulando e
+Gerando a Visualiza&ccedil;&atilde;o</a></h2>
+
+
+<br>
+
+
+Na aba 'Simulation' &eacute; poss&iacute;vel executar a
+simula&ccedil;&atilde;o e iniciar a
+visualiza&ccedil;&atilde;o 3D
+dos resultados.<br>
+
+
+<br>
+
+
+Para rodar a simula&ccedil;&atilde;o, clique no
+bot&atilde;o Run!.
+A partir dos par&acirc;metros definidos anteriormente
+ser&aacute;
+feita a simula&ccedil;&atilde;o e os resultados salvos nos
+arquivos
+de log dos sensores configurados na aba 'Configuration'.<br>
+
+
+<br>
+
+
+Para visualizar os resultados, clicar em Visualize!. Este comando
+abrir&aacute; uma janela solicitando qual arquivo de log se deseja
+visualizar. Ap&oacute;s selecionado, a
+janela de visualiza&ccedil;&atilde;o
+3D ser&aacute; aberta e os seguintes comandos s&atilde;o
+poss&iacute;veis:<br>
+
+
+<ul>
+
+
+  <li>'s': inicia a visualiza&ccedil;&atilde;o, digitando
+'s' mais vezes torna a visualiza&ccedil;&atilde;o mais acelerada</li>
+
+
+  <li>'q': fecha a janela</li>
+
+
+  <li>segurando o bot&atilde;o esquerdo do mouse e movendo
+para:</li>
+
+
+  
+  <ul>
+
+
+    <li>cima: zoom in</li>
+
+
+    <li>baixo: zoom out</li>
+
+
+    <li>esquerda: move o mapa para esquerda</li>
+
+
+    <li>direita:&nbsp;move o mapa para a direita</li>
+
+
+  
+  </ul>
+
+
+</ul>
+
+
+<br>
+
+
+<a href="#_topo"><strong><span class="c6">(Voltar ao Topo)</span></strong></a><br>
+
+
+<br>
+
+
+<h1><a name="_Agentes">Agentes Semaf&oacute;ricos</a></h1>
+
+
+<br>
+
+
+<h2 class="c7"><a name="_Desc_Agentes">Descri&ccedil;&atilde;o</a></h2>
+
+
+Com a inten&ccedil;&atilde;o de flexibilizar o desenvolvimento
+de
+controladores de tr&aacute;fego foram implementadas as classes
+b&aacute;sicas para cria&ccedil;&atilde;o de agentes
+semaf&oacute;ricos junto ao simulador ITSUMO. Esses agentes
+est&atilde;o organizados em uma estrutura de dados separada do
+simulador, portanto, o usu&aacute;rio n&atilde;o precisa
+manipular
+a codifica&ccedil;&atilde;o do simulador. Isso viabiliza a
+independ&ecirc;ncia desse m&oacute;dulo.<br>
+
+
+Entre os agentes e o simulador &eacute; estabelecida uma
+comunica&ccedil;&atilde;o via sockets, onde s&atilde;o
+recebidas todas
+informa&ccedil;&otilde;es necess&aacute;rias para o
+processamento
+do controle nos agentes, e S&atilde;o enviados os pedidos de
+altera&ccedil;&otilde;es de
+configura&ccedil;&otilde;es ao simulador. Aos agentes cabe
+interpretar as
+informa&ccedil;&otilde;es recebidas, inferir seu controle e
+retornar ao simulador sua a&ccedil;&atilde;o de controle,
+aplicada
+sobre um ou mais sem&aacute;foros na malha vi&aacute;ria.<br>
+
+
+Cada agente aqui &eacute; executado em uma thread independente. A
+comunica&ccedil;&atilde;o entre agentes e o simulador
+&eacute;
+estabelecida na porta 30000, via TCP bloqueante, e aceita um
+m&aacute;ximo de 50 conex&otilde;es (o n&uacute;mero de
+conex&otilde;es, bem como as caracter&iacute;sticas da mesma
+podem
+ser configuradas nas classes de Sockets presentes na pasta
+'src/socket/').<br>
+
+
+Este documento descreve a implementa&ccedil;&atilde;o que
+est&aacute; sendo disponibilizada junto com o simulador, utilizando
+a linguagem de programa&ccedil;&atilde;o C++, bem como a
+defini&ccedil;&atilde;o da estrutura necess&aacute;ria para
+que
+qualquer outra implementa&ccedil;&atilde;o (outra linguagem)
+possa
+ser implementada seguindo o mesmo padr&atilde;o. Ou seja,
+&eacute;
+poss&iacute;vel desenvolver em Java (por exemplo), via sockets, o
+mesmo controle, uma vez que sejam respeitadas as regras.<br>
+
+
+<br>
+
+
+<a href="br.html#_topo"><strong><span class="c6">(Voltar ao Topo)</span></strong></a><br>
+
+
+<br>
+
+
+<br>
+
+
+<h2 class="c7"><br>
+
+
+<a name="_Organiza_Agentes">Organiza&ccedil;&atilde;o</a></h2>
+
+
+O c&oacute;digo fonte da implementa&ccedil;&atilde;o se
+encontra na
+pasta '/src/trafficAgents/', onde:<br>
+
+
+<ul>
+
+
+  <li>common.{hh,cc}:&nbsp;defini&ccedil;&atilde;o de
+estruturas comuns
+necess&aacute;rias para interpreta&ccedil;&atilde;o da
+malha
+vi&aacute;ria e do controle, como 'lane', 'node', 'signalPlan',
+'phase', etc.</li>
+
+
+  <li>local_agent.{hh,cc}: define um agente local. Um agente
+local
+controla um determinado n&uacute;mero de sem&aacute;foros (um
+ou
+mais) e nesse objeto est&aacute; encapsulada toda a estrutura de
+comunica&ccedil;&atilde;o socket com o simulador</li>
+
+
+  <li>tlagent.{hh,cc}: define um controlador de
+sem&aacute;foro. Este
+objeto diz respeito a um sem&aacute;foro apenas e possui o
+conhecimento da estrutura do sem&aacute;foro e do nodo controlado
+por este. Um local_agent instancia 'n' tlagents, conforme o
+n&uacute;mero de sem&aacute;foros controlado por ele</li>
+
+
+  <li>main.c: arquivo principal onde &eacute; lido o arquivo
+de
+configura&ccedil;&atilde;o XML e os objetos agentes
+s&atilde;o
+instanciados, dando in&iacute;cio ao controle</li>
+
+
+  <li>agents.xml: arquivo de configura&ccedil;&atilde;o
+do
+m&oacute;dulo de agentes semaf&oacute;ricos. Composto por tags
+do
+tipo 'agent', cada uma definida por um nome, um estado (ON ou OFF)
+e um conjunto de sem&aacute;foros a serem controlados (dado pelo id
+do sem&aacute;foro definido na cria&ccedil;&atilde;o da
+topologia), criado na interface.<br>
+
+
+  </li>
+
+
+</ul>
+
+
+Ex.:
+<br>
+
+
+&lt;agents&gt; <br>
+
+
+&lt;agent&gt; &lt;name&gt;Agent_1&lt;/name&gt;
+<br>
+
+
+&lt;stat&gt;on&lt;/stat&gt; <br>
+
+
+&lt;trafficlights&gt;
+<br>
+
+
+&lt;trafficlight&gt;257&lt;/trafficlight&gt;
+<br>
+
+
+&lt;trafficlight&gt;259&lt;/trafficlight&gt; <br>
+
+
+&lt;/trafficlights&gt;
+<br>
+
+
+&lt;/agent&gt; <br>
+
+
+&lt;agents&gt;<br>
+
+
+<br>
+
+
+<a href="br.html#_topo"><strong><span class="c6">(Voltar o Topo)</span></strong></a><br>
+
+
+<br>
+
+
+<br>
+
+
+<h2 class="c7"><br>
+
+
+<a name="_Protocolo_Agentes">Protocolos</a></h2>
+
+
+As mensagens trocadas entre agentes e simulador s&atilde;o strings
+com as vari&aacute;veis em quest&atilde;o concatenadas e
+separadas
+por ';'.<br>
+
+
+<br>
+
+
+Para realizar a conex&atilde;o, o agente deve enviar um pedido de
+conex&atilde;o ao simulador, constitu&iacute;do de uma string
+iniciada por "a;", seguida pelos ids dos sem&aacute;foros que
+deseja controlar (lembrar da regra de composi&ccedil;&atilde;o
+de
+mensagens citada no primeiro par&aacute;grafo). Ao realizar a
+conex&atilde;o com o simulador o agente recebe uma estrutura de
+dados contendo as informa&ccedil;&otilde;es dos
+sem&aacute;foros
+que este pretende controlar. Estas informa&ccedil;&otilde;es
+s&atilde;o armazenadas na classe TLAgent. Essa mensagem
+&eacute;
+uma string com os campos abaixo:<br>
+
+
+<br>
+
+
+numberOfTrafficLights<br>
+
+
+[trafficLightId;<br>
+
+
+numberOfSignalPlans;<br>
+
+
+[signalPlanId;<br>
+
+
+numberOfPhases;<br>
+
+
+[phaseId;<br>
+
+
+phaseStartIter;<br>
+
+
+phaseEndIter;<br>
+
+
+numberOfOpenDirections;<br>
+
+
+[fromLane;<br>
+
+
+toLane;]]]]<br>
+
+
+<br>
+
+
+Na defini&ccedil;&atilde;o da topologia a ser utilizada na
+simula&ccedil;&atilde;o s&atilde;o definidos dois
+par&acirc;metros:<br>
+
+
+<br>
+
+
+a) sensor interval: define o intervalo no qual o estado da malha
+ser&aacute; informado aos agentes.<br>
+
+
+A cada sensor interval o simulador envia a cada agente conectado
+uma mensagem contendo o estado da rede para seus nodos controlados.
+Esses campos s&atilde;o interpretados e convertidos em um objeto
+'simulationState', que &eacute; ent&atilde;o armazenado em uma
+lista dentro do objeto TLAgent. Essa mensagem &eacute; iniciada
+pelo string "i;" identificando assim uma mensagem desse tipo.<br>
+
+
+<br>
+
+
+currentIteration;<br>
+
+
+numberOfNodes;<br>
+
+
+[nodeId; trafficLightId; currentPlan;
+totalNumberOfIncomingLanes;<br>
+
+
+[laneId;<br>
+
+
+laneDensity; laneAvgSpeed; laneCarsStopped]]<br>
+
+
+<br>
+
+
+<br>
+
+
+Ou seja: a itera&ccedil;&atilde;o corrente, uma lista dos nodos
+e
+uma lista das lanes de entrada para o nodo em quest&atilde;o. No
+agente essa mensagem &eacute; processada pela
+fun&ccedil;&atilde;o
+'pcsInfoMsg', na classe LocalAgent.<br>
+
+
+<br>
+
+
+O agente ap&oacute;s receber essa mensagem deve enviar uma mensagem
+de confirma&ccedil;&atilde;o de recebimento para o simulador.
+Atualmente n&atilde;o h&aacute;
+verifica&ccedil;&atilde;o do
+conte&uacute;do dessa resposta, e por isso est&aacute;
+implementada
+a resposta "OK.". Essa resposta, futuramente pode servir como mais
+uma via de troca de informa&ccedil;&otilde;es que se julgar
+pertinente.<br>
+
+
+<br>
+
+
+b) agent interval: define o intervalo no qual aos agentes
+ser&aacute; solicitada uma a&ccedil;&atilde;o de controle.<br>
+
+
+A cada agent interval &eacute; enviada uma
+solicita&ccedil;&atilde;o de controle a cada agente, e este
+processa uma mensagem de retorno contendo os ids dos
+sem&aacute;foros que devem sofrer altera&ccedil;&atilde;o
+de
+controle e as caracter&iacute;sticas do novo signal plan a ser
+executado (caso se deseje alterar o controle atual). Essa mensagem
+de solicita&ccedil;&atilde;o de controle, enviada pelo
+simulador
+&eacute; composta pela string "r;", ou seja, h&aacute; um
+'request'
+para os agentes. O formato da mensagem de resposta dos agentes
+obedece o seguinte esquema:<br>
+
+
+<br>
+
+
+trafficLightId;<br>
+
+
+[signalPlanId;<br>
+
+
+numberOfPhases;<br>
+
+
+[phaseId;<br>
+
+
+phaseStartIter;<br>
+
+
+phaseEndIter;]]<br>
+
+
+<br>
+
+
+<br>
+
+
+No in&iacute;cio da execu&ccedil;&atilde;o do itsumo,
+&eacute; dado
+um tempo de espera para que sejam registradas as conex&otilde;es
+dos agentes.<br>
+
+
+<br>
+
+
+Deve ser lembrado que o controle a ser efetuado deve ser programado
+pelo usu&aacute;rio nas classes acima descritas e ap&oacute;s
+deve
+ser recompilado o conjunto. A l&oacute;gica de controle deve ser
+implementada no objeto 'TLAgent', mais especificamente na
+fun&ccedil;&atilde;o 'newControlState()'.
+<h2>Resumo do protocolo:</h2>
+
+
+Protocolos de comunica&ccedil;&atilde;o agente
+&lt;-&gt;
+simulador:<br>
+
+
+<ol>
+
+
+  <li>Simulador inicia a execu&ccedil;&atilde;o e por 10
+segundos
+ficam esperando pedidos de conex&atilde;o de eventuais agentes;</li>
+
+
+  <li>Os agentes se conectam ao simulador enviado pedido via
+socket.
+O pedido de conex&atilde;o &eacute; uma string no formato
+abaixo: "a;id1;id2;", onde "a" &eacute; o identificador do tipo de
+mensagem
+(a = pedido de conex&atilde;o) e "id1", "id2", etc
+s&atilde;o os identificadores dos sem&aacute;foros a serem
+controlados.</li>
+
+
+  <li>Ao receber o pedido de conex&atilde;o de um agente, o
+simulador
+confirma a conex&atilde;o respondendo com uma mensagem contendo os
+dados dos sem&aacute;foros que o agente requisitou o
+controle.&nbsp;Essa mensagem &eacute; uma string no formato
+abaixo:&nbsp;</li>
+
+
+  
+  <ul>
+
+
+    <li>c;numberOfTrafficLights; [trafficLightId;
+numberOfSignalPlans;
+[signalPlanId; numberOfPhases; [phaseId; phaseStartIter;
+phaseEndIter; numberOfOpenDirections; [fromLane; toLaneset;]]]]</li>
+
+
+    <li>Um exemplo seria: o agente pediu para controlar o
+sem&aacute;foro 6 e o 9, ambos t&ecirc;m um signal plan de id
+55 com
+apenas uma fase de id 77 que inicia na itera&ccedil;&atilde;o 0
+e
+termina na itera&ccedil;&atilde;o 59 (no contexto do ciclo).
+Para
+esse caso, assumindo qualquer valor para lanes e lanesets de
+origem/destino, a string recebida pelo agente deve ficar: &nbsp;
+&nbsp;&nbsp;</li>
+
+
+    
+    <ul>
+
+
+      <li>"c;2;6;1;55;1;77;0;59;1;33;44;9;1;55;1;77;0;59;1;22;88;"
+&nbsp; &nbsp;&nbsp;</li>
+
+
+      <li>Essa mensagem, recebida pelo agente, &eacute;
+interpretada e usada
+posteriormente para o controle (pois tem as
+informa&ccedil;&otilde;es do sem&aacute;foro a ser
+controlado).</li>
+
+
+    
+    </ul>
+
+
+  
+  </ul>
+
+
+  <li>Com os passos 2 e 3 est&aacute; estabelecida a
+condi&ccedil;&atilde;o b&aacute;sica de
+opera&ccedil;&atilde;o em
+ambos os lados.</li>
+
+
+  <li>A cada 'sensor interval', o simulador envia a cada agente
+uma mensagem de
+informa&ccedil;&atilde;o dos estados dos nodos relativos aos
+sem&aacute;foros que cada agente controla (*apenas dos
+sem&aacute;foros controlados, n&atilde;o de toda
+rede*).&nbsp;</li>
+
+
+  
+  <ul>
+
+
+    <li>Essa
+mensagem &eacute; uma string no formato abaixo:&nbsp;</li>
+
+
+    
+    <ul>
+
+
+      <li>i;currentIteration; numberOfNodes; [nodeId;
+trafficLightId;
+currentPlan; totalNumberOfIncomingLanes; [laneId; laneDensity;
+laneAvgSpeed; laneCarsStopped]]&nbsp;</li>
+
+
+      <li>Um exemplo, para o caso descrito no item 3 seria:
+"i;100;2;5;6;1;1;21;0;0;0;8;9;1;1;21;0;0;0;"&nbsp;</li>
+
+
+      <li>Se a constru&ccedil;&atilde;o dessas mensagens
+for feita em
+outro c&oacute;digo fonte (outra linguagem por exemplo), as
+fun&ccedil;&otilde;es j&aacute; implementadas podem ser
+tomadas
+como base.</li>
+
+
+    
+    </ul>
+
+
+  
+  </ul>
+
+
+  <li>O agente responde ao envio de uma mensagem de
+informa&ccedil;&atilde;o (descrita no item 5) com uma string de
+confirma&ccedil;&atilde;o: "OK.".</li>
+
+
+  <li>A cada 'agent interval' o simulador manda um pedido de
+atua&ccedil;&atilde;o aos agentes. Esse 'request' &eacute;
+uma
+string do tipo "r;".</li>
+
+
+  <li>Ao receber uma mensagem como a descrita no item 7, o agente
+processa seus dados e deve responder com uma mensagem indicando as
+altera&ccedil;&otilde;es que deseja fazer nos
+sem&aacute;foros.
+Essa mensagem &eacute; descrita abaixo:&nbsp;</li>
+
+
+  
+  <ul>
+
+
+    <li>x;numberOfTrafficLights; [trafficLightId; [signalPlanId;
+numberOfPhases; [phaseId; phaseStartIter; phaseEndIter;]]]&nbsp;</li>
+
+
+    
+    <ul>
+
+
+      <li>Por exemplo, usando o caso do item 3, vamos mudar para
+o
+sem&aacute;foro 6, e alterar o per&iacute;odo da fase 77:
+"x;6;55;1;77;0;39;"&nbsp;</li>
+
+
+    
+    </ul>
+
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+
+    <li>Caso n&atilde;o se quisesse alterar a fase, mas
+apenas mudar o plano atual para 55, a mensagem seria:&nbsp;"x;6;55;"</li>
+
+
+  
+  </ul>
+
+
+</ol>
+
+
+<br>
+
+
+<br>
+
+
+<a href="br.html#_topo"><strong><span class="c6">(Voltar
+Topo)</span></strong></a><br>
+
+
+<br>
+
+
+
+<br>
+
+
+<h1><a name="_Modelagem_de_Motoristas">Agentes
+Motoristas</a></h1>
+
+
+<br>
+
+
+Um modelo de motorista deve definir o comportamento de um
+motorista, no &acirc;mbito de simula&ccedil;&atilde;o,
+frente
+&agrave;s quest&otilde;es tipicamente encontradas no
+tr&aacute;fego, como escolha de rota, velocidade escolhida para
+tr&aacute;fego, troca de pistas, etc. O processo de modelagem de
+motoristas constitui uma tarefa de grande import&acirc;ncia no que
+diz respeito &agrave; representatividade dos resultados da
+simula&ccedil;&atilde;o. O planejamento do comportamento do
+motorista passa a ser cr&iacute;tico para a correta
+avalia&ccedil;&atilde;o da malha vi&aacute;ria ou de uma
+situa&ccedil;&atilde;o de tr&aacute;fego, e mesmo assim,
+qualquer
+resultado em simula&ccedil;&atilde;o deve ser relacionado ao
+modelo
+espec&iacute;fico de motorista usado. Ainda n&atilde;o se tem
+modelos precisos de como funciona o processo de racioc&iacute;nio
+humano, tornando a tarefa de modelagem mais complexa, quando os
+objetivos s&atilde;o atingir os resultados mais realistas
+poss&iacute;veis para aplica&ccedil;&atilde;o de
+decis&otilde;es na
+vida real.<br>
+
+
+<br>
+
+
+<br>
+
+
+<br>
+
+
+<h2><a name="_Modelagem_no_simulador">Modelagem</a></h2>
+
+
+<strong></strong><br>
+
+
+Implementar m&oacute;dulos de motoristas diretamente na fonte do
+simulador, usando a linguagem de programa&ccedil;&atilde;o C++,
+consiste na forma mais flex&iacute;vel para a
+determina&ccedil;&atilde;o do comportamento de um motorista no
+simulador ITSUMO, independentemente do paradigma a ser usado.<br>
+
+
+Isso exige que o usu&aacute;rio conhe&ccedil;a e tenha uma
+certa
+experi&ecirc;ncia com a linguagem e ambientes de
+programa&ccedil;&atilde;o para a linguagem em
+quest&atilde;o.
+Tamb&eacute;m deve ser lembrado que o programador deve conhecer a
+estrutura de dados e da implementa&ccedil;&atilde;o do
+simulador,
+de forma tirar proveito dessas para descrever o motorista.
+<h1><br>
+
+
+</h1>
+
+
+<h1><a name="_Problemas">Solu&ccedil;&atilde;o
+de
+Problemas</a></h1>
+
+
+<br>
+
+
+Tipo do erro: <br>
+
+
+<br>
+
+
+<ul>
+
+
+  <li>Instala&ccedil;&atilde;o.</li>
+
+
+  
+  <ul>
+
+    <li>Erro: "qmake: Command not found"</li>
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+    
+    <ul>
+
+      <li>Solu&ccedil;&atilde;o: Verificar a
+exist&ecirc;ncia do
+bin&aacute;rio 'qmake' no diret&oacute;rio 'bin' da
+instala&ccedil;&atilde;o do qt. Caso n&atilde;o exista, o
+qt
+n&atilde;o foi instalado corretamente, sendo necess&aacute;rio
+tentar reinstalar. Caso exista o bin&aacute;rio, h&aacute; um
+problema de linkagem, poss&iacute;vel de ser corrigido
+atrav&eacute;s da cria&ccedil;&atilde;o de um link
+simb&oacute;lico
+do 'qmake' na pasta '/usr/bin/'. Para isso:&nbsp;"ln -s &lt;caminho_do_qmake&gt; /usr/bin/qmake".</li>
+
+    
+    </ul>
+
+  
+  </ul>
+
+
+
+  <li>Visualiza&ccedil;&atilde;o.</li>
+
+
+  
+  <ul>
+
+    <li>Erro: "freeglut ERROR: Function
+&lt;glutcreatewindow&gt; called
+without first calling 'glutInit'."</li>
+
+  
+  </ul>
+
+
+  
+  <ul>
+
+    
+    <ul>
+
+      <li>Solu&ccedil;&atilde;o: Esse &eacute; um erro
+presente em
+algumas
+vers&otilde;es da biblioteca freeglut (em particular na
+vers&atilde;o 2.4). Para contorn&aacute;-lo &eacute; necess&aacute;rio
+fazer
+um <span style="font-style: italic;">downgrade</span> para a vers&atilde;o 2.2-83 dessa biblioteca.</li>
+
+    
+    </ul>
+
+  
+  </ul>
+
+
+</ul>
+
+
+<br>
+
+
+<br>
+
+
+<a href="#_topo"><strong><span class="c6">(Voltar
+Topo)</span></strong></a><br>
+
+
+<br>
+
+
+<br>
+
+
+</div>
+
+
+</body>
+</html>

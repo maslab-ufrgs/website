@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+<head>
+
+  <title>ITSUMO - AAMAS 2006 DEMO</title>
+
+  <style type="text/css">
+   <!--
+    @import "style.css";
+   -->
+  </style>
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+ <table height="100%" width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tbody>
+
+
+    <tr>
+    <td align="center" valign="middle">
+     <table width="865" border="0" cellpadding="1" cellspacing="0" bordercolorlight="#336699">
+      <tbody>
+       <tr>
+        <td style="vertical-align: middle;">
+         <table cellpadding="1" cellspacing="0" border="0">
+          <tr>
+           <td>
+	    <img src="logo_maslab.jpg" title="MASLAB Logo" alt="MASLAB Logo" style="width: 390px; height: 180px;">
+           </td>
+          </tr>
+         </table>
+        </td>
+        <td style="height: 190px;">
+         <table cellpadding="1" cellspacing="0" border="0" style="text-align: center;">
+
+           <tr>
+            <td style="vertical-align: middle;">
+              <center>
+              <font color="#113366" size="8" face="Verdana, Arial, Helvetica, sans-serif">
+               <strong>- ITSUMO -</strong>
+              </font>
+              </center>
+           </td>
+           </tr>
+
+           <tr>
+            <td style="vertical-align: middle;">
+             <center>
+             <font color="#000000" size="5" face="Verdana, Arial, Helvetica, sans-serif">
+             Intelligent Transportation System
+             </font>
+             </center>
+             </td>
+           </tr>
+
+           <tr>
+            <td style="vertical-align: middle;">
+             <center>
+             <font color="#000000" size="5" face="Verdana, Arial, Helvetica, sans-serif">
+             for Urban Mobility
+             </font>
+             </center>
+             </td>
+           </tr>
+
+         </table>
+        </td>
+       </tr>
+
+      <tr>
+        <td height="620" colspan="2">
+
+         <table width="100%" border="0" cellpadding="0" cellspacing="0">
+           <tr>
+            <td height="5">
+            </td>
+           </tr>
+           <tr>
+            <td style="vertical-align: middle;">
+	     <hr>
+	    </td>
+           </tr>
+           <tr>
+            <td height="5">
+            </td>
+           </tr>
+         </table>
+
+         <table cellpadding="0" cellspacing="0" border="0" width="865" align="center">
+          <tbody align="center">
+           <tr>
+            <td>
+             <table cellpadding="0" cellspacing="0" style="width: 865px; height: 620px; text-align:center;" border="0">
+              <tbody>
+               <tr>
+                <td style="vertical-align: middle;" width="25%">
+                 <table cellpadding="0" cellspacing="0" border="0" align="center" style="width: 85%; height: 90%; background-color: rgb(51, 102, 153);">
+                  <tbody>
+                   <tr>
+                    <td height="28" valign="bottom" bgcolor="#336699" colspan="2">
+                     <center style="background-color: rgb(51, 102, 153);">
+                     <font color="#ffffff" size="3" face="Verdana, Arial, Helvetica, sans-serif">
+                     <strong>.: MENU :.</strong>
+                     </font></center>
+                    </td>
+                   </tr>
+                   <tr>
+                    <td style="height: 60px; vertical-align: top; background-color: rgb(51, 102, 153);" colspan="2">
+                     <div align="center"><font size="1">
+                      <img src="barra_cinza.jpg" width="130" height="1" border="0" name="img1"></font>
+                     </div>
+                    </td>
+                   </tr>
+
+                   <tr>
+                    <td style="heigth: 20px; vertical-align: middle;">
+                     <font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                     <span class="menu">
+                     <a href="home.html" target="interno">
+                     <center>HOME</a></span><br> 
+                    </font></td>
+                   </tr>
+
+                   <tr>
+                    <td style="height: 6px; vertical-align: middle; background-color: rgb(51, 102, 153);" colspan="2">
+                     <div align="center"><font size="1">
+                      <img src="barra_cinza.jpg" width="130" height="1" border="0" name="img1"></font>
+                     </div>
+                    </td>
+                   </tr>
+
+                   <tr>
+                    <td style="heigth: 20px; vertical-align: middle;">
+                     <font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                     <span class="menu">
+                     <a href="description.html" target="interno">
+                     <center>DESCRIPTION</a></font>
+                    </td>
+                   </tr>
+
+                   <tr>
+                    <td style="height: 6px; vertical-align: middle; background-color: rgb(51, 102, 153);" colspan="2">
+                     <div align="center"><font size="1">
+                      <img src="barra_cinza.jpg" width="130" height="1" border="0" name="img1"></font>
+                     </div>
+                    </td>
+                   </tr>
+
+		   <tr>
+                    <td style="heigth: 20px; vertical-align: middle;">
+                     <font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                     <span class="menu">
+                     <a href="http://www.inf.ufrgs.br/~favarella/itsumo/techdocument.html" target = a_blank>
+                     <center>DOCUMENTATION</a></span><br> 
+                    </font></td>
+                   </tr>
+
+		   <tr>
+                    <td style="height: 6px; vertical-align: middle; background-color: rgb(51, 102, 153);" colspan="2">
+                     <div align="center"><font size="1">
+                      <img src="barra_cinza.jpg" width="130" height="1" border="0" name="img1"></font>
+                     </div>
+                    </td>
+                   </tr>
+
+                   <tr>
+                    <td style="heigth: 20px; vertical-align: middle;">
+                     <font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+                     <span class="menu">
+                     <a href="storyboard.html" target="interno">
+                     <center>DEMO STORYBOARD</a></font>
+                    </td>
+                   </tr>
+
+
+                  </tbody>
+                 </table>
+                </td>
+
+
+                <td style="vertical-align: middle;">
+                 <table cellpadding="0" cellspacing="0" style="width: 100%; height: 90%; text-align:center;" border="0">
+                  <tbody>
+                   <tr>
+
+                    <td width="1">&nbsp;</td>
+
+                    <td bordercolor="#336699" bgcolor="#ffffff">
+                     <iframe src="home.html" width="100%" height="100%" name="interno" marginwidth="2px" marginheight="0px" noshade style="border-top-color:#eeeeee; border-right-color:#000000; border-left-color:#eeeeee; border-bottom-color:#000000;">
+                       <p>Your browser do not support iframe's.<br></p>
+                      </iframe>
+                     </td>
+
+                    <td width="1">&nbsp;</td>
+
+                    </tr>
+                   </tbody>
+                  </table>
+                 </td>
+
+
+                </tr>
+               </tbody>
+              </table>
+             </td>
+            </tr>
+           </tbody>
+          </table>
+
+          <table width="865" cellpadding="0" cellspacing="0" border="0" align="left">
+           <tbody>
+            <tr>
+             <td width="865" height="6" align="center" valign="top">
+              <font color="#999999" size="2" face="Verdana, Arial, Helvetica, sans-serif">&copy; 2006 MAS
+               Lab.&nbsp; -&nbsp; Comp. Sc. Inst.&nbsp; -&nbsp; UFRGS<br><br><br>
+             </font></td>
+            </tr>
+           </tbody>
+          </table>
+
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+
+  <map name="Map">
+  <area shape="poly"
+ coords="27,11,22,20,20,32,20,42,23,54,30,60,36,66,44,67,80,67,90,61,96,54,100,44,100,32,98,21,94,13,87,6,78,2,37,2"
+ href="http://www.ufrgs.br" target="_parent">
+  </map>
+
+</body>
+</html>

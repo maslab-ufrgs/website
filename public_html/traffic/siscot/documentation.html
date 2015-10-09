@@ -1,0 +1,1362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>:: Siscot - Integrated System of Simulation, Control and Optimization of Traffic</title></head>
+
+<div align="left"><font face="Tahoma, Arial, sans-serif"><strong><font size="5"><br>
+Documentação Técnica do SISCOT</font></strong></font></div>
+<a name="_topo"></a>
+<div align="justify">
+<p><b><font face="Arial" size="4"> Índice </font></b></p>
+</div>
+<div align="justify">
+<a href="#_Sobre_este_documento"><b><font size="3">1 Sobre este
+documento</font></b>
+</a>
+<div align="justify"><a href="#_Resumo_do_Projeto"><b><font size="3">2
+Resumo do Projeto</font></b>
+</a>
+<div align="justify"><a href="#_Fundamenta%E7%E3o_T%E9orica"><b><font size="3">3 Fundamentação Téorica</font></b>
+</a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Aut%F4mato_Celular"><b><font size="3">Autômato Celular</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Modelo_de_Nagel_Schreckenberg"><b><font size="3">Modelo de
+Nagel Schreckenberg</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Cen%E1rio_de_Simula%E7%E3o"><b><font size="3">Cenário
+de Simulação</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Network"><b><font size="3">Network</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Nodes"><b><font size="3">Nodes</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Streets_Sections_Laneset_Lane"><b><font size="3">Streets/section/Laneset/Lane</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Traffic_Light"><b><font size="3">Traffic Light</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Turning_Probabilities"><b><font size="3">Turning
+Probabilities</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Turning_Possibilities"><b><font size="3">Turning
+Possibilities</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Source"><b><font size="3">Source</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Sink"><b><font size="3">Sink</font></b></a>
+<div align="justify"><a href="#_Informa%E7%F5es_Gerais_do_Sistema"><b><font size="3">4 Informações Gerais do Sistema</font></b>
+</a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Componentes_do_Sistema"><b><font size="3">Componentes do
+Sistema</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Organiza%E7%E3o_dos_Diret%F3rios_da_Aplica%E7%E3o"><b><font size="3">Organização dos Diretórios da
+Aplicação</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Arquivos_da_Aplica%E7%E3o"><b><font size="3">Arquivos da
+Aplicação</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Modelo_de_Dados"><b><font size="3">Modelo de Dados</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Sa%EDda_do_Simulador"><b><font size="3">Saída do
+Simulador</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Vizualiza%E7%E3o"><b><font size="3">Vizualização</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Instala%E7%E3o_e_Configura%E7%E3o_do_Banco_de_Dados"><b><font size="3">Instalação e Configuração do
+Banco de Dados</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Instala%E7%E3o_e_Configura%E7%E3o_da_Interface_do_Banco_de_Dados"><b><font size="3">Instalação e Configuração da
+Interface do Banco de Dados</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Instala%E7%E3o_e_Configura%E7%E3o_do_Simulador"><b><font size="3">Instalação e Configuração do
+Simulador</font></b></a>
+<div align="justify"><a href="#_Processos"><b><font size="3">5 Processos</font></b>
+</a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Cadastramento_de_Usu%E1rios"><b><font size="3">Cadastramento
+de Usuários</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Autentica%E7%E3o_de_Usu%E1rios"><b><font size="3">Autenticação
+de Usuários</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Logout_de_Usu%E1rio"><b><font size="3">Logout de
+Usuário</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Cria%E7%E3o_de_um_Cen%E1rio_de_Simula%E7%E3o"><b><font size="3">Criação de um Cenário de
+Simulação</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Cria%E7%E3o_de_Nodes"><b><font size="3">Criação
+de Nodes</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Cria%E7%E3o_das_Vias_de_Circula%E7%E3o"><b><font size="3">Criação/Edição
+das Vias de Circulação (Streets/section/Laneset/Lane)</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Cria%E7%E3o_de_Planos_Semaf%F3ricos"><b><font size="3">Criação
+de Planos Semafóricos</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Cria%E7%E3o_das_Entradas_de_Ve%EDculos_no_Cen%E1rio"><b><font size="3">Criação das Entradas de Veículos no
+Cenário (Source)</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Cria%E7%E3o_das_Sa%EDdas_de_Ve%EDculos_no_Cen%E1rio"><b><font size="3">Criação das Saídas de Veículos no
+Cenário (Sink)</font></b></a>
+<div align="justify">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="#_Rodar_uma_Simula%E7%E3o"><b><font size="3">Rodar uma
+Simulação</font></b></a>
+<div align="justify"><a href="#_Trabalhos_Futuros"><b><font size="3">6
+Trabalhos Futuros</font></b></a>
+<div align="justify"><a href="#_Refer%EAncias"><b><font size="3">7
+Referências</font></b></a>
+<h1 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Sobre_este_documento">1 Sobre este documento</a></h1>
+Este documento foi escrito com o objetivo de permitir a
+absorção do sistema SISCOT por novos integrantes da
+equipe ou interessados em geral em seus aspectos técnicos. Como
+tal, este documento está dividido em 3 partes:
+Fundamentação Teórica, Informações
+Gerais do Sistema e Processos do Sistema.
+Para os interessados nos aspectos teóricos que embasam o
+presente trabalho, recomenda-se a leitura da seção
+Fundamentação Teórica. A seção
+Informções Gerais do Sistema, foi escrita para quem
+necessita de entender os vários componentes do sistema e como
+fazer a sua instalação.
+Caso seja um usuario que necessita de utilizar o sistema,
+encontrará a ajuda necessária na seção
+Processos.
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h1 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Resumo_do_Projeto">2 Resumo do Projeto</a></h1>
+O projeto visa a criação de um sistema de
+informação para mobilidade urbana, capaz de interligar
+subsistemas distintos como centrais de controle de tráfego,
+sistemas de consulta via Internet, e centrais de gerência de
+estacionamentos, provendo informação em tempo real aos
+usuários. O objetivo do projeto é o controle ótimo
+dos semáforos, com redução do consumo de
+combustível e dos atrasos de viagens em vias urbanas.Espera-se
+com este projeto a melhoria da qualidade de vida dos usuários, a
+quebra de reservas de mercado devidas a protocolos de
+comunicação proprietários, introduzindo a
+competição no setor, e a expansão futura para
+abarcar os vários aspectos envolvidos na mobilidade urbana,
+facilitada pela arquitetura padronizada de software.
+<h1 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Fundamentação_Téorica">3 Fundamentação
+Téorica</a></h1>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Autômato_Celular">Autômato Celular</a></h2>
+Um autômato celular é um conjunto de autômatos
+identicamente programados que interagem entre si. No autômato
+celular, cada autômato é uma célula. Podemos
+construir autômatos celulares com uma ou mais dimensões.
+Um autômato celular 1D é um autômato celular que
+possui uma seqüência infinita de autômatos justapostos
+em linha. Um autômato celular 2D é composto por
+autômatos postos lado a lado formando um plano. A mesma abordagem
+pode ser usada para autômatos celulares de maior
+dimensionalidade.
+Os autômatos celulares são usados com sucesso no estudo e
+simulação de sistemas dinâmicos complexos.
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Modelo_de_Nagel_Schreckenberg">Modelo de Nagel Schreckenberg</a></h2>
+O modelo de Nagel-Schreckenberg é baseado em um autômato
+celular, o qual divide um trecho qualquer
+de uma via em partes elementares de comprimento fixo (células) e
+executa simulações em
+passos discretos de tempo (iterações). Neste modelo, cada
+veículo possui uma velocidade v e
+se movimenta de acordo com relações bastante simples,
+envolvendo principalmente a sua velocidade
+e a posição relativa entre os carros (gap). O modelo
+utilizado no SISCOT é baseado no
+autômato de Nagel-Schreckenberg, com algumas extensões ao
+modelo original.
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Cenário_de_Simulação">Cenário de
+Simulação</a></h2>
+Para que se rode uma simulação é necessario
+montar, um cenário de simulação. Um cenário
+de simulação é uma representação dos
+elementos topológicos estáticos (ruas, cruzamentos, vias,
+faixas, etc) e dinâmicos (semáforos) existentes no mundo
+real. Os objetos representativos
+são descritos a seguir:
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Network">Network</a></h3>
+Este objeto representa a rede ou malha viária. Nele estao
+contidos todos os objetos representativos dos elementos
+topológicos estáticos e dinâmicos.
+Para cada network é associada um conjunto de variaveis
+topológicas gerais, tais como, por exemplo, o tamanho da
+célula, tempo de ciclo da simulação, o sistema de
+tráfego e tamanho da célula.
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Nodes">Nodes</a></h3>
+Este objeto é espacialmente referenciado, ou seja, contêm
+coordenadas x e y segundo determinada projeção. Este
+representa um cruzamento servindo como ponto de conexão entre os
+objetos do tipo
+<a href="#_Streets/Sections/Laneset/Lane">Streets</a>. Este objeto
+representa, tambem,
+os pontos da extremidade do cenário onde ficam localizados os
+objetos do tipo <a name="#_Source">Source</a> e <a name="#_Sink">Sink</a>.
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Streets_Sections_Laneset_Lane">Streets/Sections/Laneset/Lane</a></h3>
+Estes objetos representam os logradouros, as quadras dos logradouros,
+as vias de circulação nas quadras e as faixas de rodagem
+das vias respectivamente.
+Cada street(logradouro) está associada a um conjunto de
+Sections(quadras). Uma Section possui um conjunto de Lanesets(vias),
+que por sua vez contêm um conjunto de Lanes(faixas)
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Traffic_Light">Traffic Light</a></h3>
+Estes objetos representam os semáforos e os Planos
+Semafóricos (Semaforic Plan) contidos nesses semáforos.
+Um plano semafórico é constituido por diversas "Fases"
+(Phases). Cada Fase tem um tempo de inicio e um de fim, e o conjunto
+caminhos
+que podem ser transitados por veiculos nesse intervalo de tempo. Esses
+caminhos são representados por um conjunto de pares de lanes,
+a Lane de partida (Lane From) e a Lane de chegada (Lane To).
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Source">Source</a></h3>
+Este objeto permite a inserção de veiculos na Network. A
+sua função é inserir veiculos numa determinada
+Laneset.<br>
+Existem 4 formas de inserção de veiculos:<br>
+-<b>Probabilidade Constante:</b> Em cada <b><i>n</i></b> tempos de
+ciclos é inserido <b><i>x</i></b> veiculos com probabilidade <b><i>p</i></b><br>
+-<b>Probabilidade Variável:</b> Em pré-determinados
+tempos de ciclos é inserido <b><i>x</i></b> veiculos com
+probabilidade <b><i>p</i></b><br>
+-<b>Fluxo Constante:</b> Em cada <b><i>n</i></b> tempos de ciclos
+é inserido <b><i>x</i></b> veiculos<br>
+-<b>Fluxo Variável:</b> Em pré-determinados tempos de
+ciclos é inserido <b><i>x</i></b> veiculos
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Sink">Sink</a></h3>
+Este objeto permite a remoção de veiculos na Network. A
+sua função é remover todos os veiculos da laneset
+a que está conectada.
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Turning_Possibilities">Turning Possibilities</a></h3>
+Este objeto permite descrever as possibilidades de um veiculo mudar de
+direção, de uma lane para uma laneset, num determinado
+node.
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Turning_Probabilities">Turning Probabilities</a></h3>
+Este objeto permite descrever as probabilidades de um veiculo mudar em
+cada umas das direções possiveis. Essa probabilidade
+é descrita de uma laneset de origem (From) para uma laneset de
+chegada (To), num determinado node.
+A soma total das probabilidades é igual a 1.
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h1 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Informações_Gerais_do_Sistema">4 Informações
+Gerais do Sistema</a></h1>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Componentes_do_Sistema">Componentes do Sistema</a></h2>
+O sistema foi desenhado para rodar no Sistema Operacional Linux<br>
+<br>
+<table border="1" cellpadding="1" cellspacing="1">
+  <tbody>
+    <tr>
+      <td align="center"><b>Elemento</b></td>
+      <td align="center"><b>Tecnologia</b> </td>
+      <td align="center"><b>Servidor</b><br>
+Máquinas lab 214, informatica, UFRGS </td>
+    </tr>
+    <tr>
+      <td align="center">Páginas dinâmicas </td>
+      <td align="center">PHP v.4.3.2 </td>
+      <td align="center">einstein </td>
+    </tr>
+    <tr>
+      <td align="center">Banco de Dados </td>
+      <td align="center">PostgreSQL v.7.4.3 </td>
+      <td align="center">einstein </td>
+    </tr>
+    <tr>
+      <td align="center">Servidor Web </td>
+      <td align="center">Apache v.1.3.27 </td>
+      <td align="center">einstein </td>
+    </tr>
+    <tr>
+      <td align="center">Simulador </td>
+      <td align="center">C++ </td>
+      <td align="center">einstein </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Organização_dos_Diretórios_da_Aplicação">Organização
+dos Diretórios da Aplicação</a></h2>
+SISCOT-Aplicação<br>
+[raiz] -- atualmente é /home/einstein/public/siscot/public_html<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|-networks: repositorio de arquivos .topo
+usados no applet de visualização da network<br>
+<br>
+SISCOT-Página<br>
+[raiz] -- atualmente é
+/home/coruja/mas/public_html/traffic/siscot<br>
+&nbsp;&nbsp;&nbsp;&nbsp;|-applet visual: Arquivos .class e .java usados
+no applet de visualização da simulacao das networks "Av.
+da Independencia" e "Square"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-indco: Diretorio dos
+arquivos necessarios para a visualização da simulacao da
+network "Av. da Independencia"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-square: Diretorio dos
+arquivos necessarios para a visualização da simulacao da
+network "Square"<br>
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Arquivos_da_Aplicação">Arquivos da Aplicação</a></h2>
+<ul>
+  <li><b>administraSiscot.php: </b>Faz a inserção
+(Insert) dos dados digitados, pelo usuário, no banco de dados</li>
+  <li><b>agente.php: </b>Permite que o usuário entre com os
+dados, referentes aos Agentes, no sistema</li>
+  <li><b>ajuda.php: </b>Gerência o assistente de
+Criação de Cenário de Simulação</li>
+  <li><b>atualiza_calibration.php: </b>Permite que o usuário
+faça a atualização dos calibrations Source e Sink</li>
+  <li><b>atualiza_senha.php: </b>Faz a atualização dos
+dados de cadastro do usuário, no banco de dados</li>
+  <li><b>cadastro.php: </b>Permite que o usuário entre com os
+dados de cadastro, como usuário e senha</li>
+  <li><b>cadastro_usuario.php: </b>Faz a inserção dos
+dados de cadastro do usuário, no banco de dados</li>
+  <li><b>coloca.php: </b>Permite que o usuário entre com os
+dados, referentes aos Calibration Source, no sistema</li>
+  <li><b>conecta_pg.php: </b>Faz a conexão ao banco de dados.
+Contêm as informações da senha e usuário do
+banco de dados. Este arquivo é incluido em todos os arquivos que
+necessitam de acesso ao banco de dados</li>
+  <li><b>criaPlanosOffset.php: </b>Permite criar planos semaforicos
+semelhantes com o tempo de offset embutido no tempo de das fases desses
+planos</li>
+  <li><b>dePara.php: </b>Permite que o usuário entre com os
+dados, referentes aos Turning Possibilities, no sistema</li>
+  <li><b>escolheNetworkUsuario.php: </b>Permite que o usuário
+escolha a Network de trabalho, referentes aos Agentes, no sistema</li>
+  <li><b>estrada.php: </b>Permite que o usuário entre com os
+dados, referentes às Streets, no sistema</li>
+  <li><b>faixa.php: </b>Permite que o usuário entre com os
+dados, referentes às Lanes, no sistema</li>
+  <li><b>fase.php: </b>Permite que o usuário entre com os
+dados, referentes às Fases de um Plano Semafórico, no
+sistema</li>
+  <li><b>login.php: </b>Permite que o usuário faça o
+Login, no sistema</li>
+  <li><b>logout.php: </b>Permite que o usuário faça o
+Logout, no sistema</li>
+  <li><b>modificaSiscot.php: </b>Faz a atualização
+(Update e Delete) dos dados, no banco de dados. Semelhante ao
+administraSiscot</li>
+  <li><b>modificaTopologia.php: </b>Permite que o usuário
+faça modificações da Topology Settings, no banco
+de dados</li>
+  <li><b>no.php: </b>Permite que o usuário entre com os dados,
+referentes aos Nodes, no sistema</li>
+  <li><b>ordenaLanes.inc: </b>Faz a ordenação das
+posições das Lanes de uma Laneset, após ter sido
+apagada uma Lane dessa Laneset</li>
+  <li><b>ordenaPlanosSemaforicos.inc: </b>Faz a
+ordenação dos Planos Semafóricos, após ter
+sido apagado um Plano Semafórico</li>
+  <li><b>peso.php: </b>Permite que o usuário entre com os
+dados, referentes aos Turning Probability, no sistema</li>
+  <li><b>planoscoordenados.php: </b>Permite que o usuário
+faça a escolha dos planos semafóricos, pertencentes a um
+Plano Coordenado</li>
+  <li><b>planosemaforo.php: </b>Permite que o usuário entre com
+os dados, referentes aos Planos Semafóricos, no sistema</li>
+  <li><b>rede.php: </b>Permite que o usuário entre com os
+dados, referentes à Network, no sistema</li>
+  <li><b>retira.php: </b>Permite que o usuário entre com os
+dados, referentes aos Calibration Sinks, no sistema</li>
+  <li><b>seccao.php: </b>Permite que o usuário entre com os
+dados, referentes às Sections, no sistema</li>
+  <li><b>semaforo.php: </b>Permite que o usuário escolha o Node
+para criação dos Planos Semafóricos</li>
+  <li><b>topologia.php: </b>Permite que o usuário entre com os
+dados, referentes à Topology Settings, no sistema</li>
+  <li><b>valida_sessao.inc: </b>Permite que o controle de
+sessão do usuário no sistema. Nenhum usuario pode acessar
+ao sistema através da url sem primeiro ter feito login.</li>
+  <li><b>veiculo.php: </b>Permite que o usuário entre com os
+dados, referentes aos Veiculos, no sistema</li>
+  <li><b>via.php: </b>Permite que o usuário entre com os dados,
+referentes aos Lanesets, no sistema</li>
+</ul>
+<ul>
+  <li><b>Arquivos HTML:</b>index.html; cabecalho&amp;menu_completo;
+cabecalho&amp;menu_estatico; cabecalho&amp;menu_logout;
+cabecalho&amp;menu_new_logout; cabecalho&amp;menu_new_view_help_logout;
+cabecalho&amp;menu_new_view_logout.<br>
+São os responsáveis pela criação do menu
+à esquerda da interface, em todos os estágios em que
+aparece. Os nome após "&amp;" significa as opcoes de menu
+visivéis.</li>
+</ul>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Modelo_de_Dados">Modelo de Dados</a></h2>
+<p align="left"><img alt="" src="documentation_files/diager.jpg" height="585" hspace="15" width="830"><br>
+</p>
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Saída_do_Simulador">Saída do Simulador</a></h2>
+O simulador após cada interação pode gerar, para a
+tela ou para um arquivo, um ou mais informacoes
+estatísticas,dependendo da necessidade do usuário. Estas
+informações estatísticas, passiveis de serem
+geradas, estão organizadas em 3 tipos de formatos, com dados
+específicos em cada um deles:<br>
+<br>
+Formato: "Lane.txt"<br>
+&nbsp;&nbsp;&nbsp; - time<br>
+&nbsp;&nbsp;&nbsp; - lane<br>
+&nbsp;&nbsp;&nbsp; - current density<br>
+&nbsp;&nbsp;&nbsp; - current average speed<br>
+&nbsp;&nbsp;&nbsp; - array of cells ("-" or "carId")<br>
+<br>
+<table>
+</table>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td align="center" valign="middle">time<br>
+      </td>
+      <td align="center" valign="middle">lane<br>
+      </td>
+      <td align="center" valign="middle">density<br>
+      </td>
+      <td align="center" valign="middle">average speed<br>
+      </td>
+      <td align="center" valign="middle">array of cells<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">0.3<br>
+      </td>
+      <td align="center" valign="middle">2.5<br>
+      </td>
+      <td align="center" valign="middle">- - 1 - - 2 13 5 7 -<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">0.25<br>
+      </td>
+      <td align="center" valign="middle">2.333<br>
+      </td>
+      <td align="center" valign="middle">- 12 22 - 12 - - -<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">0.3<br>
+      </td>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">4&nbsp;- - 5 - - - 9 8 -<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">n<br>
+      </td>
+      <td align="center" valign="middle">0<br>
+      </td>
+      <td align="center" valign="middle">0<br>
+      </td>
+      <td align="center" valign="middle">- - - - - - - - - -<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">0.3<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">- - - - - 1 - - - -<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">n<br>
+      </td>
+      <td align="center" valign="middle">0<br>
+      </td>
+      <td align="center" valign="middle">0<br>
+      </td>
+      <td align="center" valign="middle">- - - - - - - - - -<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+Formato: "Node.txt"<br>
+&nbsp;&nbsp;&nbsp; - time<br>
+&nbsp;&nbsp;&nbsp; - Node<br>
+&nbsp;&nbsp;&nbsp; - current Signal Plan<br>
+Obs.: just save when the Signal Plan changes.<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td align="center" valign="middle">time<br>
+      </td>
+      <td align="center" valign="middle">node<br>
+      </td>
+      <td align="center" valign="middle">Signal Plan<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">sp1_1<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">sp2_1<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">sp3_1<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">n<br>
+      </td>
+      <td align="center" valign="middle">spn_1<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">sp1_2<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">5<br>
+      </td>
+      <td align="center" valign="middle">sp5_2<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">n<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">sp3_n<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+Formato: "SpecialCar.txt"<br>
+&nbsp;&nbsp;&nbsp; - time<br>
+&nbsp;&nbsp;&nbsp; - car<br>
+&nbsp;&nbsp;&nbsp; - current lane<br>
+&nbsp;&nbsp;&nbsp; - current position<br>
+&nbsp;&nbsp;&nbsp; - current speed<br>
+&nbsp;&nbsp;&nbsp; - driver identifier<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+  <tbody>
+    <tr>
+      <td align="center" valign="middle">time<br>
+      </td>
+      <td align="center" valign="middle">car<br>
+      </td>
+      <td align="center" valign="middle">lane<br>
+      </td>
+      <td align="center" valign="middle">position<br>
+      </td>
+      <td align="center" valign="middle">speed<br>
+      </td>
+      <td align="center" valign="middle">driver id<br>
+      </td>
+      <td align="center" valign="top">next lane<br>
+      </td>
+      <td align="center" valign="top">next speed<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">7<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">0<br>
+      </td>
+      <td align="center" valign="top">3<br>
+      </td>
+      <td align="center" valign="top">3<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">4<br>
+      </td>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="top">3<br>
+      </td>
+      <td align="center" valign="top">3<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">4<br>
+      </td>
+      <td align="center" valign="middle">10<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">0<br>
+      </td>
+      <td align="center" valign="top">7<br>
+      </td>
+      <td align="center" valign="top">3<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="top">...<br>
+      </td>
+      <td align="center" valign="top">...<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">n<br>
+      </td>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="top">2<br>
+      </td>
+      <td align="center" valign="top">2<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">10<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">0<br>
+      </td>
+      <td align="center" valign="top">4<br>
+      </td>
+      <td align="center" valign="top">3<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">6<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">0<br>
+      </td>
+      <td align="center" valign="top">3<br>
+      </td>
+      <td align="center" valign="top">3<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="top">...<br>
+      </td>
+      <td align="center" valign="top">...<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">n<br>
+      </td>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">3<br>
+      </td>
+      <td align="center" valign="middle">2<br>
+      </td>
+      <td align="center" valign="middle">1<br>
+      </td>
+      <td align="center" valign="top">3<br>
+      </td>
+      <td align="center" valign="top">3<br>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="middle">...<br>
+      </td>
+      <td align="center" valign="top">...<br>
+      </td>
+      <td align="center" valign="top">...<br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<a href="#_topo">
+<b><font size="1">(Voltar Topo)</font></b></a> <br>
+<br>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Vizualização">Vizualização</a></h2>
+Atualmente o sistema de visualização do Projeto SISCOT
+é baseada em JAVA, num aplicativo multiplataforma simples de se
+utilizar, utilizando como entrada os arquivos gerados na <a href="#_Sa%EDda_do_Simulador">saída do simulador</a>. A
+visualização pode ser feita de duas formas: pela cor
+correspondente a taxa de ocupação das vias ou pelos
+veículos trafegando nas mesmas.<br>
+<br>
+As opções de controle da visualização
+atualmente incluem:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-iniciar, para começar a mostrar
+um resultado da simulação já carregado;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-pausar, permitindo uma melhor
+análise da simulação;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-continuar, reiniciando a
+visualização após uma
+pausa;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-parar, interrompe a
+visualização e permite reiniciar. <br>
+Existem ainda controles para o nível de zoom do mapa e para
+deslocamentos, uma vez que a área de desenho é limitada.
+Pode-se usar deslocamentos grandes (representados pela duplicidade) ou
+deslocamentos pequenos.
+<p>&nbsp;</p>
+<h3 align="center">Visualização Colorida pela Taxa de
+Ocupação</h3>
+Cada via muda sua cor, conforme a taxa de ocupação que
+possui.
+<p><img src="documentation_files/visual.JPG" align="middle" height="547" hspace="15" width="839"></p>
+<p>O programa possui uma legenda para facilitar a compreensão do
+mapa, vista abaixo:</p>
+<p> <img src="documentation_files/legenda.JPG" align="middle" height="180" hspace="375" width="130"></p>
+<p>&nbsp;</p>
+<h3 align="center">Visualização de Veículos</h3>
+O Sistema Visual também permite visualizar os veículos a
+cada passo de simulação. Assim, podemos observar o
+comportamento dos veículos, além de outras
+características, como a presença de filas.
+<p align="left"><img src="documentation_files/visual2_1.JPG" alt="" height="585" hspace="15" width="830"><br>
+</p>
+<p align="left">&nbsp;</p>
+<h3 align="center">Consultas</h3>
+Um mecanismo de consulta está implementado, onde é
+possível obtermos um rápido acesso a algumas
+informações sobre determinada via, como a taxa de
+ocupação, quantidade de veículos, velocidade da
+via, etc.. Uma amostra de sua aparência pode ser vista abaixo:
+<p><img src="documentation_files/pesquisa.JPG" height="600" hspace="350" width="255"></p>
+<p>Quando um nome incorreto for digitado, uma janela exibirá
+todas as possibilidades de nomes de edges existentes para selecionares
+um:</p>
+<p><img src="documentation_files/pesq_opcao.JPG" height="100" hspace="275" width="400"></p>
+<p>&nbsp;</p>
+<br>
+<br>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Instalação_e_Configuração_do_Banco_de_Dados">Instalação
+e Configuração do Banco de Dados</a></h2>
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><br>
+Instalação do PostgreSQL</h3>
+Aqui pretende-se apresentar de uma forma suscinta a
+instalação do banco de dados Postgresql. Para mais
+informações e download do banco de dados, visite a
+página oficial do <a href="http://www.postgresql.org/">Postgresql</a>.<br>
+Executar o shell com o usuario postgres, o superusuario do PostgreSQL.
+Para isto, entre com o seguinte comando no xterm: su - postgres <br>
+Executar o comando initdb: initdb -W -D /usr/local/pgsql/data/ &amp; <br>
+O initdb é um Script Shell e a sua execucao deve acontecer
+somente na primeira vez em que se instalar o Postgresql. Ele é
+responsável por acertar determinadas variáveis de
+ambiente para o Postgresql (como o diretorio padrao em que residerao
+seus bancos de dados elaborados em Postgresql), copiar arquivos de
+configuracao, criar visoes uteis ao catalogo do Postgresql, entre
+outras funcoes.<br>
+Iniciar o Postgresql: /usr/bin/postmaster -i -D /usr/local/pgsql/data/ <br>
+<br>
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><br>
+Instalação do banco de dados Siscot</h3>
+Pegar a ultima versao (tabelas + dados) do banco de dados do projeto: <br>
+<b>Tabelas:</b> pg_dump --disable-triggers --no-owner --schema-only
+--no-privileges --file=backup.sql siscot (nome da última
+versão) <br>
+<b>Dados:</b> pg_dump --disable-triggers --no-owner --data-only
+--format c --file=backup.dat siscot(nome da última versão)<br>
+Criar o banco de dados siscot:<br>
+psql -c "CREATE DATABASE simtrafv7 WITH ENCODING='Latin1'" <br>
+Criar um usuario para a utilizacao do banco de dados: <br>
+CREATE USER nomeUsuario PASSWORD 'senhaUsuario'; <br>
+GRANT ALL PRIVILEGES ON simtraf TO nomeUsuario; <br>
+Mudar para o usuario criado: su - nomeUsuario <br>
+Carregar o banco de dados: <br>
+<b>Tabelas:</b> psql -c "\i backup.sql" siscot<br>
+<b>Dados:</b> pg_restore --disable-triggers --dbname=siscot backup.dat<br>
+Para sair do BD: pg_ctl stop -D /usr/local/pgsql/data/
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Instalação_e_Configuração_da_Interface_do_Banco_de_Dados">Instalação
+e Configuração da Interface do Banco de Dados</a></h2>
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><br>
+Configuração do Servidor Apache</h3>
+Depois de instalado, é necessário fazer a
+configuração do servidor, através do arquivo
+httpd.conf. Normalmente se encontra em etc/httpd/ . <br>
+Todas as configurações estão comentadas. O
+mínimo que deve ser configurado é o diretório onde
+os documentos (arquivos da interface) deveram estar, através da
+opção DocumentRoot. Basta procurar a opção
+e escrever o nome do diretório em seguida, como no exemplo:<br>
+DocumentRoot "home/diretorioPHP/public_html"<br>
+e tambem <br>
+&amp;ltDirectory "home/diretorioPHP/public_html"&gt;<br>
+....<br>
+&lt;/Directory&gt;<br>
+<br>
+Uma outra configuração básica é a
+DirectoryIndex, que informa ao servidor quais os arquivos serão
+exibidos automaticamente como índice do diretório.
+É isso que faz com que ao digitar, por
+exemplo,&#8220;www.guia-aju.com.br, o servidor saiba qual dos arquivos do
+diretório deve ser exibido. Abaixo temos um exemplo da
+utilização do DirectoryIndex:<br>
+DirectoryIndex index.html index.htm index.php<br>
+Feito isso, crie um arquivo com um dos nomes definidos como
+índice e coloque no diretório definido como root. Execute
+o servidor Apache e tente acessar o endereço &#8220;http://localhost&#8221;
+pelo browser. Se a página for exibida, é porque o
+servidor foi instalado e está funcionando corretamente.
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><br>
+Configuração do PHP</h3>
+Faça download e leia as informações sobre
+instalação do PHP. Para tal, visite a página
+oficial do <a href="http://www.php.net//">PHP</a>.<br>
+Depois de instalado o PHP, o arquivo, com o nome php.ini (normalmente
+se encontra em usr/local/etc) deverá ser editado, e dai
+modificar a linha extension_dir, que deve conter o diretório
+onde estão os módulos (arquivos dll). Veja o exemplo:<br>
+extension_dir= /php/extensions<br>
+Além disso é necessário descomentar a linha
+referente o módulo postgres, já que iremos
+utilizá-lo basta tirar o &#8220;;&#8221; (ponto-e-vírgula) do
+início da linha:<br>
+;extension=php_pgsql.dll<br>
+Modificar o root das páginas PHP:<br>
+doc_root="home/diretorioPHP/public_html" --&gt;Nota:deverá ser
+igual ao DocumentRoot do Apache<br>
+e colocar os registos globais em on, para que se possa utilizar as
+variaveis dos formulários:<br>
+register_globals=On (inicialmente estao Off para maior segurança)<br>
+Feito isso, podemos partir para a configuração do
+servidor Apache, necessária para que este reconheça o
+PHP. Editando novamente o arquivo httpd.conf, a linha a seguir deve ser
+descomentada ou criada no arquivo:<br>
+AddType application/x-httpd-php4 .php4 .php<br>
+Além disso devem ser acrescentadas as seguintes linhas:<br>
+LoadModule php4_module c:/php/sapi/php4apache.dll <br>
+AddModule mod_php4.c <br>
+A primeira linha define o diretório onde está o PHP. A
+segunda cria um &#8220;tipo&#8221; para o PHP, definido que todos os arquivos com
+as extensões &#8220;.php4&#8221; e &#8220;.php&#8221; devem passar pelo interpretador
+PHP. A terceira linha define o executável do interpretador PHP.<br>
+Depois de salvar o arquivo, podemos testar se a
+instalação do PHP foi bem sucedida. A melhor maneira
+é criar um arquivo chamado teste.php e salvar no
+diretório raiz do servidor Apache. O arquivo deve conter a
+seguinte informação:<br>
+&lt;?<br>
+phpinfo(); <br>
+?&gt;<br>
+Acessando a página através do servidor
+(http://localhost/diretorioPHP/teste.php), devemos ter como resultado
+uma listagem de todas as configurações do PHP, incluindo
+o módulo postgres, que foi definido como ativo no arquivo
+php.ini.<br>
+<br>
+<h3 style="margin-left: 0cm; text-indent: 0cm;"><br>
+Configuração da Interface</h3>
+Colocar todos os arquivos da interface no DocumentRoot
+("home/diretorioPHP/public_html") configurado tanto no Apache como no
+PHP<br>
+Criar diretorio networks (com permisao de gravacao) em
+home/diretorioPHP/public_html/<br>
+<br>
+No arquivo <b>conecta_pg.inc</b> fazer as alteracoes respectivas, com
+o nome do seu servidor, o nome do banco de dados,...etc, das seguintes
+linhas:<br>
+$str_conexao="host=nomeServidor dbname=nomeDB port=5432
+user=nomeUsuario password=senhaUsuario";<br>
+$tamanho_tela="percentagemTamanhoTela%";
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><br>
+<a name="_Instalação" e="" configuração="" do="" simulador="">Instalação
+e Configuração do Simulador</a></h2>
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h1 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Processos">5
+Processos</a></h1>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Cadastramento_de_Usuários">Cadastramento de Usúarios</a></h2>
+Para voce poder criar o seu cenário de simulação
+é necessario, primeiro, fazer um cadastro de usuario. Com isso,
+voce poderá criar, salvar e editar o seu cenário
+além de outros cenários já existentes de dominio
+publico. Para tal, siga os passos abaixo:<br>
+-Click em "Create New User" (ver Fig. abaixo)<br>
+<p><img src="documentation_files/processo1_1.bmp" align="middle" hspace="15"></p>
+-Preencher os campos do Formulario (ver Fig. abaixo)<br>
+<p><img src="documentation_files/processo1_2.bmp" align="middle" hspace="15"></p>
+Nota: Para poder acessar os cenarios do grupo Siscot, por favor
+contatar o <a href="mailto:simtraf@yahoogroups.com"> grupo Siscot</a>.
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Autenticação_de_Usuários">Autenticação de
+Usuários</a></h2>
+Antes de criar ou editar um cenário de simulação
+é necessario fazer o login no sistema. Para tal, entre com o seu
+usuario e senha, cadastrado previamente:<br>
+-Preencher os campos com o usuario (1) e senha (2) (ver Fig. abaixo)<br>
+<p><img src="documentation_files/processo2_1.bmp" align="middle" hspace="15"></p>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Logout_de_Usuário">Logout de Usuário</a></h2>
+Para sair do sistema, e encerrar a sua sessao de trabalho sobre o seu
+cenário de simulação, clicar em Logout, situado no
+menu da esquerda:
+<p><img src="documentation_files/processo3_1.bmp" align="middle" hspace="15"></p>
+Nota: A cada operacao (inserir/apagar/editar) realizada no seu
+cenário de simulação e feita uma
+atualização do banco de dados, ou seja, o seu trabalho
+é salvo automaticamente a cada operação efetuada.
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Criação_de_um_Cenário_de_Simulação">Criação de um
+Cenário de Simulação</a></h2>
+Após a entrada correta no sistema de usuario e senha,
+aparecerá uma tela com as opcoes para voce poder criar
+uma cenario de simulação novo ou editar um cenário
+já existente.<br>
+-Para criar novo cenário clicar em ***New Network***(ver Fig.
+abaixo)<br>
+<p><img src="documentation_files/processo4_1.bmp" align="middle" hspace="15"></p>
+-Seguir os passos de 1 a 10 do assitente de criação de
+cenários(ver Fig. abaixo). Para tal, basta clicar em cima de
+cada passo respectivamente<br>
+<p><img src="documentation_files/processo4_2.bmp" align="middle" hspace="15"></p>
+-Para sair do assistente e construir o cenario sem a ajuda clicar em
+***New Network***(ver Fig. acima) e depois clicar no seu cenário<br>
+Nota1: O processo de criacao de um cenário de
+simulação é sequencial. Como tal, recomenda-se a
+utilização do assistente de criação.<br>
+Nota2: No canto superior direito (ver Fig. acima) encontra-se um
+indicador de qual o passo que vc se encontra, do total de 10
+necessarios para rodar uma simulação.
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Criação_de_Nodes">Criação de Nodes</a></h2>
+-Para criar um Node, a partir do menu da esquerda, clicar em
+Network-&gt;Nodes-&gt;New(ver Fig. abaixo)<br>
+<p><img src="documentation_files/processo5_1.bmp" align="middle" hspace="15"></p>
+-Preencher o campo (1) com nome do Node, que é um campo
+opcional, e que por default é um numero sequencial
+correspondente ao número de Nodes existentes.<br>
+-Preencher os campos (2) e (3) com as coordenadas X e Y,
+respectivamente, referentes à posicao espacial do Node.
+<p><img src="documentation_files/processo5_2.bmp" align="middle" hspace="15"></p>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Criação_das_Vias_de_Circulação">Criação/Edição
+das Vias de Circulação (Streets/section/Laneset/Lane)</a></h2>
+-Para criar uma Street na Network, a partir do menu da esquerda, clicar
+em Network-&gt;Street-&gt;New (ver Fig. abaixo).<br>
+<p><img src="documentation_files/processo6_1.bmp" align="middle" hspace="15"></p>
+-Preencher o campo com o nome da Street (ver Fig. abaixo).<br>
+Nota1: As partes constituintes de uma via de circulacao tem uma relacao
+de interdependencia (1 contêm n) ou seja, nao é possivel,
+por exemplo, criar uma Lane sem ter-se criado previamente uma laneset,
+e assim tambem em relacao a Section e Street.<br>
+Nota2: Após a entrada de uma Street, Section ou Laneset, no
+sistema, aparecerá sempre a opção de criar uma
+Section, uma Laneset ou uma Lane respectivamente, ou seja, de um
+elemento que pode estar contido no elemento novo criado.
+<p><img src="documentation_files/processo6_2.bmp" align="middle" hspace="15"></p>
+-Para acrescentar vias de circulação, a partir do menu da
+esquerda, clicar em Network-&gt;Edit Network (ver Fig. abaixo).<br>
+<p><img src="documentation_files/processo6_3.bmp" align="middle" hspace="15"></p>
+-Na tela irá aparecer a estrutura da presente Network. Para
+editar uma Street, Section, Laneset ou uma Lane, clicar em (1),(2),(3)
+e (4) respectivamente (ver Fig. abaixo).
+<p><img src="documentation_files/processo6_4.bmp" align="middle" hspace="15"></p>
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Criação_de_Planos_Semafóricos">Criação de Planos
+Semafóricos</a></h2>
+-Para criar um Plano Semafórico, a partir do menu da esquerda,
+clicar em Dynamics-&gt;Traffic Lights-&gt;New(ver Fig. abaixo)<br>
+<p><img src="documentation_files/processo7_1.bmp" align="middle" hspace="15"></p>
+-Selecionar no campo (1) o Node, ao qual vai pertencer o plano
+semaforico. Este aparece na forma número ID e as
+coordenadas(X,Y) correspondentes, referentes à posicao espacial
+do Node. Caso esta caixa de seleção esteja vazia,
+significa que nao existe nenhum Node ainda na Network, então
+crie um Node primeiro.(ver Fig. abaixo)<br>
+-Preencher o campo (2) com nome do Plano Semafórico, que
+é um campo opcional.<br>
+-Preencher o campo (3) com a hora de início (hh:mm) do plano
+semafórico.<br>
+-Assinalar no campo (4) se este plano será o plano
+semafórico default deste Node.<br>
+-Preencher os campos (5) e (6) os tempos de ciclo e offset (opcional),
+respectivamente. O tempo de ciclo é o tempo decorrente desde o
+início da primeira fase do plano semafórico até ao
+fim da ultima fase do plano semafórico. Significa isso que o
+tempo final da ultima fase nao pode ultrapassar o tempo de ciclo
+estipulado.
+O tempo de offset, é o intervalo de tempo entre dois planos
+semafóricos coordenados, de forma a se obter o efeito de "onda
+verde" <br>
+-Preencher o campo (7) com algum comentario que se ache pertinente, em
+relação, ao plano semafórico criado.<br>
+<p><img src="documentation_files/processo7_2.bmp" align="middle" hspace="15"></p>
+-Após da inclusao no banco de dados de nome, hora de inicio,
+tempo de ciclo, tempo de offset, etc, do plano semafórico
+criado, chegou a hora de criar as fases do plano semafórico.<br>
+-Uma fase de um plano semafórico representa um intervalo de
+tempo em que é permitido circular veiculos de um determinado
+local(Lanes) para outro (Lanes).<br>
+-Para criar uma fase, clicar em (1) "Create Phases" ou em (2) "List
+Signal Plan" para listar os planos existentes (ver Fig. abaixo). <br>
+<p><img src="documentation_files/processo7_3.bmp" align="middle" hspace="15"></p>
+-Preencher o tempo de início e de fim da fase em (1) e (2)
+respectivamente (ver Fig. abaixo). <br>
+Nota1:A primeira fase começa do tempo 0s. <br>
+Nota2:O tempo de fim nao pode ser menor que o tempo de inicio da fase. <br>
+Nota3:O tempo de início de uma fase nao pode ser menor que o
+tempo de fim da fase anterior. <br>
+-Selecionar uma Lane de origem e uma Lane de destino, em (3) e (4),
+respectivamente.
+Nota1:A caixa de seleção da Lane de origem, a
+informação aparece na forma número Node de origem
+da Lane e o próprio número da Lane. Caso esta caixa de
+seleção esteja vazia, significa que nao existe nenhuma
+Lane cujo Node de destino seja o Node o qual vc escolheu para criar o
+plano semafórico.<br>
+Nota1:A caixa de seleção da Lane de destino, a
+informação aparece na forma número da Lane e o
+Node de destino dessa Lane. Caso esta caixa de seleção
+esteja vazia, significa que nao existe nenhuma Lane cujo Node de origem
+seja o Node o qual vc escolheu para criar o plano semafórico.<br>
+<p><img src="documentation_files/processo7_4.bmp" align="middle" hspace="15"></p>
+-Após da inclusao no banco de dados de um par de Lanes da fase
+criada, irá aparecer as opcoes de criação de um
+novo par de Lanes na fase atual (1) "SAME PHASE", uma nova fase (2)
+"NEW PHASE", ou novo plano semafórico (3) "NEW SIGNAL PLAN" (ver
+Fig. abaixo).<br>
+-Repetir o passo acima, até completar a construção
+do plano semafórico.<br>
+<p><img src="documentation_files/processo7_5.bmp" align="middle" hspace="15"></p>
+-Nota3: Quando se clica em "LIST SIGNAL PLANS", como o próprio
+nome indica, é listado todas as informacoes de todas as fases de
+todos os planos semafóricos existentes naquele Node.
+-Nota4: Se aparecer em alguma linha a informação "Turning
+Not Allowed", significa que foi criado um par de Lanes numa fase que
+nao habilitado a circulação de uma Lane para a outra.
+Assim, apague esse par de Lanes dessa fase ou possibilite essa
+circulação em "Turning Possibility".<br>
+-Nota5: Se aparecer a informação "Phases Missing",
+significa que foi habilitado a circulação de uma
+determinada Lane para a outra, mas nao essa circulação
+nao foi comtemplada em nenhuma fase do plano semafórico. Assim,
+crie esse par de Lanes numa das fases do plano ou impossibilite essa
+circulação em "Turning Possibility".<br>
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Criação_das_Entradas_de_Veículos_no_Cenário">Criação
+das Entradas de Veículos no Cenário (Source)</a></h2>
+-Para criar um lugar de entrada de veiculos no cenário, a partir
+do menu da esquerda, clicar em Dynamics-&gt;Sources-&gt;New (ver Fig.
+abaixo)<br>
+<p><img src="documentation_files/processo8_1.bmp" align="middle" hspace="15"></p>
+-Selecionar no campo (1) o Node, ao qual vai estar localizado a entrada
+de veiculos no cenário. Este aparece na forma número ID e
+as coordenadas(X,Y) correspondentes, referentes à posicao
+espacial do Node. Caso esta caixa de seleção esteja
+vazia, significa que nao existe nenhum Node ainda na Network,
+então crie um Node primeiro.(ver Fig. abaixo)<br>
+<p><img src="documentation_files/processo8_2.bmp" align="middle" hspace="15"></p>
+-Após de selecionar o Node no campo (1) preencher o resto da
+informação do Source.(ver Fig. abaixo)<br>
+-Selecionar em (2) a Laneset de destino para a colocação
+de veiculos. As Lanesets da caixa de selecao, sao todas aquelas cujo
+Node de origem é aquele escolhido para a
+localização do novo Source<br>
+-Preencher o campo (3) com a hora de início (hh:mm) do Source.<br>
+-Preencher os campos (4) com o tempo de ciclo. O tempo de ciclo
+é o tempo decorrente entre a duas interacoes do source.<br>
+-Selecionar em (5), o tipo de source. Exitem quatro tipos de sources:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Constant Probability: Insere veiculos
+com probabilidade constante (Vehicles Insertion Rate)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Variable Probability: Insere veiculos
+com probabilidade variavel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Constant Flow:Insere um número
+fixo de veiculos em cada tempo de ciclo<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Variable Flow:Insere um determinado
+número de veiculos em cada tempo de ciclo<br>
+<p><img src="documentation_files/processo8_3.bmp" align="middle" hspace="15"></p>
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h2 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Criação_das_Saídas_de_Veículos_no_Cenário">Criação
+das Saídas de Veículos no Cenário (Sink)</a></h2>
+-Para criar um lugar de entrada de veiculos no cenário, a partir
+do menu da esquerda, clicar em Dynamics-&gt;Sinks-&gt;New (ver Fig.
+abaixo)<br>
+<p><img src="documentation_files/processo9_1.bmp" align="middle" hspace="15"></p>
+-Selecionar no campo (1) o Node, ao qual vai estar localizado a
+saídade veiculos no cenário. Este aparece na forma
+número ID e as coordenadas(X,Y) correspondentes, referentes
+à posicao espacial do Node. Caso esta caixa de
+seleção esteja vazia, significa que nao existe nenhum
+Node ainda na Network, então crie um Node primeiro.(ver Fig.
+abaixo)<br>
+<p><img src="documentation_files/processo9_2.bmp" align="middle" hspace="15"></p>
+-Após de selecionar o Node no campo (1) preencher o resto da
+informação do Source.(ver Fig. abaixo)<br>
+<p><img src="documentation_files/processo9_3.bmp" align="middle" hspace="15"></p>
+<br>
+<a href="#_topo"><b><font size="1">(Voltar Topo)</font></b></a>
+<h1 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Trabalhos_Futuros">6 Trabalhos Futuros</a></h1>
+As tarefas que ainda devem ser realizadas de forma a melhorar o
+simulador atual:<br>
+-Alteração da velocidade de um carro na saida de um
+semáforo para 1<br>
+-Retirar as Turning Possibilities<br>
+-O tempo de uma fase de um plano semaforico comecar em 1 em vez de 0<br>
+-Os Objetos do simulador passarem a ser referenciados por nome e nao
+mais pelo seu número<br>
+-Criar desaceleração por street/section/laneset/lane de
+modo a poder representar de uma forma mais realista, disturbios que
+ocorrem na via publica como, por exemplo, obras de manutencao em
+determinado trecho dessas vias<br>
+<a href="#_topo">
+<b><font size="1">(Voltar Topo)</font></b></a> <br>
+<br>
+<h1 style="margin-left: 0cm; text-indent: 0cm;"><a name="_Referências">7
+Referências</a></h1>
+<a href="#_topo">
+<b><font size="1">(Voltar Topo)</font></b></a> <br>
+<br>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>
