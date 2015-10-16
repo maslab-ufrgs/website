@@ -1,0 +1,502 @@
+<html>
+
+<head>
+ 
+ <style type="text/css">
+ <!--
+   @import "style.css";
+  -->
+ </style>
+ 
+</head>
+
+<body>
+<span class="pagina">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+
+<table style="width: 100%; height: 100%" border="0">
+ <tbody>
+  <tr>
+   <td width="100%" height="10" valign="top" align="center">
+    <font size="3" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+    <strong>Publish or Perish<br></strong>
+    </font>
+   </td>
+  </tr>
+ 
+  <tr>
+   <td valign="top" width="100%">
+    <table border="0" style="position:relative; top:30px;">
+
+<!-- start new deadlines below here>
+
+
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://lsin.unisantos.br/icaris2007" target="_blank">
+          6th International Conference on Artificial Immune Systems<BR>
+        </a>
+        </font>
+       </td>
+     </tr>
+ 
+ <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.iiconference.org/dates.html" target="_blank">
+          3rd Indian International Conference on Artificial Intelligence<BR>
+        </a>
+        </font>
+       </td>
+     </tr>
+
+      <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://ppginf.ucpel.tche.br/wesaac" target="_blank">
+         Workshop-Escola de Sistemas de Agentes para Ambientes Colaborativos <BR>
+        </a>
+        </font>
+       </td>
+     </tr>
+
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.sbc.de9.ime.eb.br/br/eventos/enia.htm">
+          Encontro Nacional de Int. Artificial (ENIA) 2007<BR>
+        </a> a ser realizado durante o CSBC 2007 no Rio de Janeiro
+        </font>
+       </td>
+     </tr>
+
+    <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.computelligence.org/sis/2007" target="_blank">
+          2007 IEEE Swarm Intelligence Symposium<br>
+        </a>
+        </font>
+      </td>
+     </tr>
+	
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.aamas-conference.org/aamas2007/" target="_blank">
+          The Sixth International Joint Conference on Autonomous Agents and Multi-Agent Systems - AAMAS 2007<br>
+        </a>
+        </font>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.eumas.org/" target="_blank">
+          The Fourth European Workshop on Multi-Agent Systems - EUMAS 2006<br>
+        </a>
+        </font>
+      </td>
+     </tr>
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.ijcai-07.org/" target="_blank">
+           Twentieth International Joint Conference on Artificial Intelligence - IJCAI 07<BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+    
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.ecmlpkdd2006.org/index.htm" target="_blank">
+          ECML-PKDD 2006<BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://ecai2006.itc.it/cda/aree/index.php?section=31&area=10" target="_blank">
+          ECAI06 Workshops<BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+
+     <tr>
+        <td>
+         <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.dfki.de/MATES" target="_blank">
+          Fourth German Conference on Multi-Agent System Technologies (MATES 06)<BR>
+        </a>
+        </font>
+        </td>
+     </tr>
+
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.icmc.usp.br/~iarn2006/institutions.htm" target="_blank">
+          International Joint Conference IBERAMIA/SBIA/SBRN 2006<BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+
+
+     <tr>
+        <td>
+        </td>
+        <td>
+        </td>
+     </tr>
+
+
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://iridia.ulb.ac.be/~ants/ants2006/" target="_blank">
+           Fifth International Workshop on Ant Colony Optimization and Swarm Intelligence - ANTS 06<BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+   
+
+     <tr>
+        <td>
+	</td>
+	<td>
+	</td>
+     </tr>
+
+
+
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.ki2006.fb3.uni-bremen.de/" target="_blank">
+           29th German Conference on Artificial Intelligence - KI 06<BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+   
+
+     <tr>
+        <td>
+	</td>
+	<td>
+	</td>
+     </tr>
+
+
+    <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.itsc2006.org/" target="_blank">
+           The 9th International IEEE Conference on Intelligent Transportation Systems - ITSC 2006<BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+
+
+     <tr>
+        <td>
+        </td>
+        <td>
+        </td>
+     </tr>
+
+     
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.aaai.org/Conferences/National/2006/aaai06.html" target="_blank">
+           Twenty-first National Conference on Artificial Intelligence - AAAI 06<BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+   
+     <tr>
+        <td> 
+	</td>
+	<td> 
+	</td>
+     </tr>
+
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://2006.eccbr.org/" target="_blank">
+        8th European Conference on Case-Based Reasoning -  ECCBR 06<BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+   
+     <tr>
+        <td> 
+	</td>
+	<td> 
+	</td>
+     </tr>
+
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://ecai2006.itc.it/cda/aree/index.php" target="_blank">
+           17th European Conference on Artificial Intelligence - ECAI 06<BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+    
+     <tr>
+        <td> 
+	</td>
+	<td>
+	</td>
+     </tr>
+
+
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.scs-europe.net/conf/ecms2006/index.html" target="_blank">
+           20TH European Conference on Modelling and Simulation - ECMS 2006<BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.icml2006.org/icml2006/home.html" target="_blank">
+           ICML 2006 (23rd Conference on Machine Learning)<BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        Closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+       <a href="http://www.fun.ac.jp/aamas2006/" target="_blank">
+           Fifth International Joint Conference on Autonomous Agents and Multi-Agent Systems - AAMAS 06<BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+   
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+        Closed
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+        <a href="http://ecmlpkdd05.liacc.up.pt/" target="_blank">
+         16th European Conference on Machine Learning - ECML 05 <BR>
+	</a>
+        </font>
+      </td>
+     </tr>
+     
+     <tr>
+     
+      <td>
+       <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+        Closed
+       </font>
+      </td>
+      <td>
+       <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+        <a href="http://ijcai05.csd.abdn.ac.uk/" target="_blank">
+         Nineteenth International Joint Conference on Artificial Intelligence - IJCAI 05 <BR>
+        </a>
+       </font>
+      </td>
+     </tr>
+     
+     
+     <tr>
+        <td> 
+	</td>
+	<td> 
+	</td>
+     </tr>
+     
+     
+     <tr>
+      <td>
+       <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+        Closed 
+       </font>
+      </td>
+      <td>
+       <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+        <a href="http://www.aamas2005.nl/main.php" target="_blank">
+         Fourth International Joint Conference on Autonomous Agents and Multiagent Systems 
+        </a>
+        - AAMAS 05
+       </font>
+      </td>
+     </tr>
+
+     <tr>
+        <td> 
+	</td>
+	<td> 
+	</td>
+     </tr>
+
+     
+     <tr>
+      <td>
+       <font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#113366">
+       </font>
+      </td>
+      <td>
+        <font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#113366">
+        <a href="http://www.inf.ufrgs.br/~pjaques/conferences.html" target="_blank">
+           Other conferences in the areas of Learning, Learning Environments, Human-Computer-Interaction <BR>
+	   and Artificial Intelligence in Education <BR>
+        </a>
+        </font>
+      </td>
+     </tr>
+     
+     <tr>
+        <td> 
+	</td>
+	<td> 
+	</td>
+     </tr>
+
+    </table>
+   </td>
+  </tr>
+ </tbody>
+</table>
+</font>
+</span>
+
+</body>
+
+</html>
