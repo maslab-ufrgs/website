@@ -7,3 +7,7 @@
 .menu a:visited { COLOR: #cccccc; TEXT-DECORATION: none}
 .menu a:hover { COLOR: #ffffff; font-style: italic;}
 .menu a:active { COLOR: #ffffff; font-style: italic; }
+
+.nowrap {
+  white-space: nowrap;
+}
